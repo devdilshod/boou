@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { CATEGORIES, INITIAL_PRODUCTS } from './data/products.js';
 import { TopBar } from './components/TopBar.jsx';
@@ -9,11 +10,11 @@ import { About } from './components/About.jsx';
 import { Location } from './components/Location.jsx';
 import { Footer } from './components/Footer.jsx';
 import { Cart } from './components/Cart.jsx';
-import { ProductModal } from './components/ProductModal.jsx'; // <-- Yangi modal import qilindi
+import { ProductModal } from './components/ProductModal.jsx';
+import { Wishlist } from './components/WishList.jsx';
 
 export const App = () => {
-    
-    const [products] = useState(INITIAL_PRODUCTS);
+  const [products] = useState(INITIAL_PRODUCTS);
 
   const [cart, setCart] = useState(() => {
     const saved = localStorage.getItem('boou_cart');
@@ -31,8 +32,9 @@ export const App = () => {
 
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState('home');
+  const [scrollToSection, setScrollToSection] = useState(null);
 
-  // Modal uchun mahsulot va boshlang'ich tanlangan rang
   const [modalProduct, setModalProduct] = useState(null);
   const [modalColor, setModalColor] = useState(null);
 
@@ -44,7 +46,17 @@ export const App = () => {
     localStorage.setItem('boou_wishlist', JSON.stringify(wishlist));
   }, [wishlist]);
 
-  // Savatchaga qo'shish (mahsulot, rang va miqdor)
+  useEffect(() => {
+    if (currentPage === 'home' && scrollToSection) {
+      const timer = setTimeout(() => {
+        document.getElementById(scrollToSection)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setScrollToSection(null);
+      }, 100);
+
+      return () => clearTimeout(timer);
+    }
+  }, [currentPage, scrollToSection]);
+
   const handleAddToCart = (product, color = null, quantity = 1) => {
     const activeColor = color || (product.colors && product.colors[0]) || null;
     const cartItemId = activeColor ? `${product.id}-${activeColor.code}` : product.id;
@@ -91,7 +103,6 @@ export const App = () => {
     setWishlist(prev => prev.includes(id) ? prev.filter(item => item !== id) : [...prev, id]);
   };
 
-  // Kartochka bosilganda modalni ochish
   const handleOpenProductModal = (product, color = null) => {
     setModalProduct(product);
     setModalColor(color);
@@ -102,7 +113,11 @@ export const App = () => {
     setModalColor(null);
   };
 
-  // Filtrlash va saralash
+  const handleNavigateHome = (id) => {
+    setScrollToSection(id);
+    setCurrentPage('home');
+  };
+
   const filteredProducts = products.filter(p => {
     const matchesCat = selectedCategory === 'all' || p.category === selectedCategory;
     const q = searchQuery.trim().toLowerCase();
@@ -118,40 +133,55 @@ export const App = () => {
   return (
     <div className="min-h-screen flex flex-col bg-boou-50 text-boou-900 font-sans">
       <TopBar />
+
       <Header
         cartCount={cart.reduce((s, i) => s + i.quantity, 0)}
         wishlistCount={wishlist.length}
         onOpenCart={() => setIsCartOpen(true)}
-        onOpenWishlist={() => alert(`Sevimlilar: ${wishlist.length} ta mahsulot`)}
+        onOpenWishlist={() => setCurrentPage('wishlist')}
         onOpenSearch={() => setIsSearchOpen(true)}
+        currentPage={currentPage}
+        onNavigateHome={handleNavigateHome}
       />
 
-      <main className="flex-1">
-        <Hero onSelectCategory={setSelectedCategory} />
-        
-        <Products
-          products={filteredProducts}
-          categories={CATEGORIES}
-          selectedCategory={selectedCategory}
-          onSelectCategory={setSelectedCategory}
-          searchQuery={searchQuery}
-          onSearchChange={setSearchQuery}
-          sortBy={sortBy}
-          onSortChange={setSortBy}
-          onAddToCart={handleAddToCart}
-          onToggleLike={handleToggleLike}
+      {currentPage === 'wishlist' ? (
+        <Wishlist
+          products={products}
           wishlist={wishlist}
-          onOpenModal={handleOpenProductModal} // <-- Modalni mahsulot va rangi bilan ochadi
+          onToggleLike={handleToggleLike}
+          onAddToCart={handleAddToCart}
+          onOpenModal={handleOpenProductModal}
+          onBack={() => setCurrentPage('home')}
         />
+      ) : (
+        <>
+          <main className="flex-1">
+            <Hero onSelectCategory={setSelectedCategory} />
 
-        <Categories categories={CATEGORIES} onSelectCategory={setSelectedCategory} />
-        <About />
-        <Location />
-      </main>
+            <Products
+              products={filteredProducts}
+              categories={CATEGORIES}
+              selectedCategory={selectedCategory}
+              onSelectCategory={setSelectedCategory}
+              searchQuery={searchQuery}
+              onSearchChange={setSearchQuery}
+              sortBy={sortBy}
+              onSortChange={setSortBy}
+              onAddToCart={handleAddToCart}
+              onToggleLike={handleToggleLike}
+              wishlist={wishlist}
+              onOpenModal={handleOpenProductModal}
+            />
 
-      <Footer onSelectCategory={setSelectedCategory} />
+            <Categories categories={CATEGORIES} onSelectCategory={setSelectedCategory} />
+            <About />
+            <Location />
+          </main>
 
-      {/* Savatcha (Cart Drawer) */}
+          <Footer onSelectCategory={setSelectedCategory} />
+        </>
+      )}
+
       <Cart
         isOpen={isCartOpen}
         onClose={() => setIsCartOpen(false)}
@@ -173,7 +203,6 @@ export const App = () => {
         }}
       />
 
-      {/* Mahsulot Tafsilotlari Modali (Skrinshotdagi oyna) */}
       <ProductModal
         product={modalProduct}
         initialColor={modalColor}

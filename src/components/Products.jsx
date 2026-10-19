@@ -105,16 +105,17 @@ export const Products = ({
             <p className="text-xs text-boou-500 mt-1">Iltimos, boshqa kalit so'z kiriting yoki toifalardan birini tanlang.</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="flex gap-6 overflow-x-auto flex-nowrap pb-4 snap-x snap-mandatory sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:overflow-visible sm:pb-0">
             {products.map(p => (
-              <ProductCard
-                key={p.id}
-                product={p}
-                onAddToCart={onAddToCart}
-                onToggleLike={onToggleLike}
-                isLiked={wishlist.includes(p.id)}
-                onOpenModal={onOpenModal}
-              />
+              <div key={p.id} className="shrink-0 w-[85%] sm:w-auto snap-start">
+                <ProductCard
+                  product={p}
+                  onAddToCart={onAddToCart}
+                  onToggleLike={onToggleLike}
+                  isLiked={wishlist.includes(p.id)}
+                  onOpenModal={onOpenModal}
+                />
+              </div>
             ))}
           </div>
         )}

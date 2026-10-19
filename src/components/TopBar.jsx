@@ -9,7 +9,10 @@ export const TopBar = () => {
             <i className="fas fa-certificate text-brass-500 text-[10px]"></i> 100% Original BOOU
           </span>
           <span className="hidden md:inline text-boou-300">|</span>
-          <span className="text-boou-300">Qo'yliq bozori santexnika qatori, 2-pavilion 94-do'kon</span>
+          <span className="text-boou-300">
+            <span className="block sm:inline">Qo'yliq bozori santexnika qatori,</span>
+            <span className="block">2-pavilion 94-do'kon</span>
+          </span>
         </div>
         <div className="flex items-center gap-4 text-[11px] text-boou-300">
           <a href="tel:+998712004488" className="hover:text-white transition flex items-center gap-1.5">
