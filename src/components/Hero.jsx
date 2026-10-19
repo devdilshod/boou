@@ -56,7 +56,7 @@ export const Hero = ({ onSelectCategory }) => {
           <div className="lg:col-span-5 relative">
             <div className="relative mx-auto max-w-md lg:max-w-none">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white group">
-                <img src="/images/oshxona/B8093NG.jpg" alt="BOOU Oshxona Smestitellari" className="w-full h-[360px] sm:h-[420px] object-cover group-hover:scale-105 transition-transform duration-700" />
+                <img src="public/images/oshxona/B8093NG.jpg" alt="BOOU Oshxona Smestitellari" className="w-full h-[360px] sm:h-[420px] object-cover group-hover:scale-105 transition-transform duration-700"/>
                 <div className="absolute inset-0 bg-gradient-to-t from-boou-950/80 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
                   <span className="inline-block bg-brass-500 text-boou-950 text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded w-max mb-1.5">Yangi kolleksiya</span>
                   <h3 className="text-xl font-bold leading-tight">BOOU Oshxona Smestitellari</h3>

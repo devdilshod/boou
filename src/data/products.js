@@ -14,7 +14,7 @@ export const CATEGORIES = [
   { id: "oshxona-smestitel", name: "Oshxona smestitellari", img: "/images/oshxona/B8093NG.jpg" },
   { id: "rakovina-smestitel", name: "Rakovina Smestitellari", img: "/images/rakovina/B8215PB.jpg" },
   { id: "smestitel", name: "Vanna Smestitellari", img: "/images/vanna/B8280NGG.jpg" },
-  { id: "dush-tizimlari", name: "BOOU Dush tizimlari", img: "/images/dush/B7160PB.jpg" },
+  { id: "dush-tizimlari", name: "BOOU Dush tizimlari", img: "/images/dushavoy/B7160PB.jpg" },
   // { id: "unitaz", name: "BOOU Unitazlar", img: "https://images.unsplash.com/photo-1585058177579-3eb8113426e6?auto=format&fit=crop&w=600&q=80" },
   // { id: "umivalnik", name: "BOOU Umivalniklar", img: "https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=600&q=80" },
   // { id: "oyna", name: "Oyna va shkaflar", img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80" },
@@ -90,7 +90,7 @@ export const INITIAL_PRODUCTS = [
     isPopular: true,
     isNew: true,
     image: "/images/oshxona/B9205NGG.jpg",
-    description: "Rakovinaga qo‘shimcha kran o‘rnatishga hojat yo‘q: BOOU kombinatsiyalangan smestiteli ham kundalik vodoprovod suvini, ham toza filtrlangan ichimlik suvini alohida kanallar orqali bitta ixcham korpusda taqdim etadi.",
+    description: "Rakovinaga qo'shimcha kran o'rnatishga hojat yo'q: BOOU kombinatsiyalangan smestiteli ham kundalik vodoprovod suvini, ham toza filtrlangan ichimlik suvini alohida kanallar orqali bitta ixcham korpusda taqdim etadi.",
     colors: [
       { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-9205PB", price: 52, oldPrice: 57, image: "/images/oshxona/B9205PB.jpg" },
       { name: "Grafit", hex: "#4a4e54", code: "BOOU-9205NGG", price: 52, oldPrice: 57, image: "/images/oshxona/B9205NGG.jpg" },
@@ -110,7 +110,7 @@ export const INITIAL_PRODUCTS = [
     isPopular: false,
     isNew: true,
     image: "/images/oshxona/B9210PB.jpg",
-    description: "Rakovinani ortiqcha teshishga hojat qoldirmaydigan BOOU Platinum krani — toza filtr suvi va oddiy suvni bitta korpusda jamlab, harakatdan so‘ng o‘z o‘rniga mahkam tortiluvchi magnitli jomrak orqali maksimal qulaylik beradi.",
+    description: "Rakovinani ortiqcha teshishga hojat qoldirmaydigan BOOU Platinum krani — toza filtr suvi va oddiy suvni bitta korpusda jamlab, harakatdan so'ng o'z o'rniga mahkam tortiluvchi magnitli jomrak orqali maksimal qulaylik beradi.",
     colors: [
       { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-9210PB", price: 185, oldPrice: 215, image: "/images/oshxona/B9210PB.jpg" },
       { name: "Matoviy", hex: "#D7D0CC", code: "BOOU-9210MAT", price: 180, oldPrice: 210, image: "/images/oshxona/B9210MAT.jpg" },
@@ -128,7 +128,7 @@ export const INITIAL_PRODUCTS = [
     isPopular: false,
     isNew: true,
     image: "/images/oshxona/B8314NG.jpg",
-    description: "Katta idishlarni yuvishni osonlashtiruvchi 360° aylanuvchi L-simon BOOU Platinum krani — original zavod qadog‘idagi mustahkam zanglamas latun korpus hamda har qanday oshxonaga mos Mat Qora, Grafit, Xrom va Tilla Mat ranglari uyg‘unligi.",
+    description: "Katta idishlarni yuvishni osonlashtiruvchi 360° aylanuvchi L-simon BOOU Platinum krani — original zavod qadog'idagi mustahkam zanglamas latun korpus hamda har qanday oshxonaga mos Mat Qora, Grafit, Xrom va Tilla Mat ranglari uyg'unligi.",
     colors: [
       { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-8314PB", price: 110, oldPrice: 135, image: "/images/oshxona/B8314PB.jpg" },
       { name: "Grafit", hex: "#4a4e54", code: "BOOU-8314NGG", price: 115, oldPrice: 140, image: "/images/oshxona/B8314NGG.jpg" },
@@ -149,7 +149,7 @@ export const INITIAL_PRODUCTS = [
     isPopular: true,
     isNew: false,
     image: "/images/vanna/B5413.jpg",
-    description: "BOOU vanna smestiteli: Korroziyaga va qattiq suvga chidamli toza latun metallidan tayyorlangan. Ishonchli keramik kartrij suvni bir tekis va shovqinsiz boshqaradi. Qulay to‘plam: 3 xil funksiyali dush leykasi, egiluvchan 1,50m shlang va devorga o‘rnatish detallari birga keladi.",
+    description: "BOOU vanna smestiteli: Korroziyaga va qattiq suvga chidamli toza latun metallidan tayyorlangan. Ishonchli keramik kartrij suvni bir tekis va shovqinsiz boshqaradi. Qulay to'plam: 3 xil funksiyali dush leykasi, egiluvchan 1,50m shlang va devorga o'rnatish detallari birga keladi.",
     colors: [
       { name: "Xrom", hex: "#e2e8f0", code: "BOOU-5413-18", price: 25, oldPrice: 29, image: "/images/vanna/B5413.jpg" },
     ]
@@ -165,7 +165,7 @@ export const INITIAL_PRODUCTS = [
     isPopular: true,
     isNew: false,
     image: "/images/vanna/B8276.jpg",
-    description: "BOOU vanna smestiteli: Korroziyaga va qattiq suvga chidamli toza latun metallidan tayyorlangan. Ishonchli keramik kartrij suvni bir tekis va shovqinsiz boshqaradi. Qulay to‘plam: 5 xil funksiyali dush leykasi, egiluvchan 1,50m shlang va devorga o‘rnatish detallari birga keladi.",
+    description: "BOOU vanna smestiteli: Korroziyaga va qattiq suvga chidamli toza latun metallidan tayyorlangan. Ishonchli keramik kartrij suvni bir tekis va shovqinsiz boshqaradi. Qulay to'plam: 5 xil funksiyali dush leykasi, egiluvchan 1,50m shlang va devorga o'rnatish detallari birga keladi.",
     colors: [
       { name: "Xrom", hex: "#e2e8f0", code: "BOOU-8276-18", price: 28, oldPrice: 31, image: "/images/vanna/B8276.jpg" }
     ]
@@ -181,7 +181,7 @@ export const INITIAL_PRODUCTS = [
     isPopular: true,
     isNew: false,
     image: "/images/vanna/B5330.jpg",
-    description: "BOOU vanna smestiteli: Korroziyaga va qattiq suvga chidamli toza latun metallidan tayyorlangan. Ishonchli keramik kartrij suvni bir tekis va shovqinsiz boshqaradi. Qulay to‘plam: 5 xil funksiyali dush leykasi, egiluvchan 1,50m shlang va devorga o‘rnatish detallari birga keladi.",
+    description: "BOOU vanna smestiteli: Korroziyaga va qattiq suvga chidamli toza latun metallidan tayyorlangan. Ishonchli keramik kartrij suvni bir tekis va shovqinsiz boshqaradi. Qulay to'plam: 5 xil funksiyali dush leykasi, egiluvchan 1,50m shlang va devorga o'rnatish detallari birga keladi.",
     colors: [
       { name: "Xrom", hex: "#e2e8f0", code: "BOOU-5330-18", price: 25, oldPrice: 29, image: "/images/vanna/B5330.jpg" },
     ]
@@ -197,7 +197,7 @@ export const INITIAL_PRODUCTS = [
     isPopular: true,
     isNew: true,
     image: "/images/vanna/B8280.jpg",
-    description: "BOOU vanna smestiteli: Korroziyaga va qattiq suvga chidamli toza latun metallidan tayyorlangan. Ishonchli keramik kartrij suvni bir tekis va shovqinsiz boshqaradi. Qulay to‘plam: 5 xil funksiyali dush leykasi, egiluvchan 1,50m shlang va devorga o‘rnatish detallari birga keladi. 4 xil premial rangda: Yaltiroq Xrom, Mat Qora, Grafit, Tilla Mat",
+    description: "BOOU vanna smestiteli: Korroziyaga va qattiq suvga chidamli toza latun metallidan tayyorlangan. Ishonchli keramik kartrij suvni bir tekis va shovqinsiz boshqaradi. Qulay to'plam: 5 xil funksiyali dush leykasi, egiluvchan 1,50m shlang va devorga o'rnatish detallari birga keladi. 4 xil premial rangda: Yaltiroq Xrom, Mat Qora, Grafit, Tilla Mat",
     colors: [
       { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-8280-18PB", price: 42, oldPrice: 50, image: "/images/vanna/B8280PB.jpg" },
       { name: "Grafit", hex: "#4a4e54", code: "BOOU-8280-18NGG", price: 44, oldPrice: 52, image: "/images/vanna/B8280NGG.jpg" },
@@ -214,7 +214,7 @@ export const INITIAL_PRODUCTS = [
     price: 37,
     oldPrice: 43,
     image: "/images/vanna/B8174.jpg",
-    description: "BOOU vanna smestiteli: Korroziyaga va qattiq suvga chidamli toza latun metallidan tayyorlangan. Ishonchli keramik kartrij suvni bir tekis va shovqinsiz boshqaradi. Qulay to‘plam: 5 xil funksiyali dush leykasi, egiluvchan 1,50m shlang va devorga o‘rnatish detallari birga keladi.",
+    description: "BOOU vanna smestiteli: Korroziyaga va qattiq suvga chidamli toza latun metallidan tayyorlangan. Ishonchli keramik kartrij suvni bir tekis va shovqinsiz boshqaradi. Qulay to'plam: 5 xil funksiyali dush leykasi, egiluvchan 1,50m shlang va devorga o'rnatish detallari birga keladi.",
     colors: [
       { name: "Xrom", hex: "#e2e8f0", code: "BOOU-8174-18", price: 37, oldPrice: 43, image: "/images/vanna/B8174.jpg" }
     ]
@@ -230,7 +230,7 @@ export const INITIAL_PRODUCTS = [
     isPopular: true,
     isNew:false,
     image: "/images/vanna/B8215.jpg",
-    description: "BOOU vanna smestiteli: Korroziyaga va qattiq suvga chidamli toza latun metallidan tayyorlangan. Ishonchli keramik kartrij suvni bir tekis va shovqinsiz boshqaradi. Qulay to‘plam: 5 xil funksiyali dush leykasi, egiluvchan 1,50m shlang va devorga o‘rnatish detallari birga keladi. 2 xil premial rangda: Mat Qora, Yaltiroq Xrom",
+    description: "BOOU vanna smestiteli: Korroziyaga va qattiq suvga chidamli toza latun metallidan tayyorlangan. Ishonchli keramik kartrij suvni bir tekis va shovqinsiz boshqaradi. Qulay to'plam: 5 xil funksiyali dush leykasi, egiluvchan 1,50m shlang va devorga o'rnatish detallari birga keladi. 2 xil premial rangda: Mat Qora, Yaltiroq Xrom",
     colors: [
       { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-8215-18PB", price: 42, oldPrice: 50, image: "/images/vanna/B8215PB.jpg" },
       { name: "Xrom", hex: "#d1d5db", code: "BOOU-8280-18XROM", price: 33, oldPrice: 36, image: "/images/vanna/B8215XROM.jpg" },
@@ -446,6 +446,26 @@ export const INITIAL_PRODUCTS = [
   },
 
   {
+    id: "boou-8116-BJ",
+    code: "BOOU-8116-BJ",
+    name: "BOOU Platinum Baland Rakovina Smestiteli",
+    category: "rakovina-smestitel",
+    categoryName: "Rakovina Smestitellari",
+    price: 40,
+    oldPrice: 45,
+    isPopular: true,
+    isNew: true,
+    image: "/images/rakovina/B8116BJ-NG.jpg",
+    description: "Tropik yomg'ir dushi, 3 rejimli qo'l leykasi va 38°C xavfsiz termostatli hashamatli dush kolonnasi.",
+    colors: [
+      { name: "Grafit", hex: "#4a4e54", code: "BOOU-8116-1NGG", price: 44, oldPrice: 52, image: "/images/rakovina/B8116BJ-NGG.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8116-1XROM", price: 33, oldPrice: 36, image: "/images/rakovina/B8116BJ-XROM.jpg" },
+      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-8116-1PB", price: 42, oldPrice: 50, image: "/images/rakovina/B8116BJ-PB.jpg" },
+      { name: "Tilla Mat", hex: "#d4af37", code: "BOOU-8116-1NG", price: 44, oldPrice: 52, image: "/images/rakovina/B8116BJ-NG.jpg" }
+    ]
+  },
+
+  {
     id: "boou-8315-BJ",
     code: "BOOU-8315-BJ",
     name: "BOOU Platinum Baland Rakovina Smestiteli",
@@ -470,22 +490,171 @@ export const INITIAL_PRODUCTS = [
 
   // ------------------- Dush smestitellar ----------------------
   {
+    id: "boou-7103",
+    code: "BOOU-7103",
+    name: "BOOU 7103 Dush Smestiteli",
+    category: "dush-tizimlari",
+    categoryName: "Dush tizimlari & Smestitellar",
+    price: 78,
+    oldPrice: 85,
+    isPopular: true,
+    isNew: false,
+    image: "/images/dushavoy/B7103PB.jpg",
+    description: "Devor ichiga yashirin o'rnatiladigan zamonaviy BOOU 7103 dush smestiteli. Qalin og'ir latun korpus, qulay montaj qutisi (i-box) va tropik dush bilan qo'l leykani boshqaruvchi silliq keramik perekluchatel. Hammom interyerini ortiqcha quvurlarsiz minimalist va hashamatli qiladi.",
+    colors: [
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU 7160XROM", price: 78, oldPrice: 85, image: "/images/dushavoy/B7103XROM.jpg" },
+    ]
+  },
+  {
+    id: "boou-7108",
+    code: "BOOU-7108",
+    name: "BOOU 7108 Dush Smestiteli",
+    category: "dush-tizimlari",
+    categoryName: "Dush tizimlari & Smestitellar",
+    price: 78,
+    oldPrice: 85,
+    isPopular: true,
+    isNew: true,
+    image: "/images/dushavoy/B7108PB.jpg",
+    description: "Devor ichiga yashirin o'rnatiladigan zamonaviy BOOU 7108 dush smestiteli. Qalin og'ir latun korpus, qulay montaj qutisi (i-box) va tropik dush bilan qo'l leykani boshqaruvchi silliq keramik perekluchatel. Hammom interyerini ortiqcha quvurlarsiz minimalist va hashamatli qiladi.",
+    colors: [
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU 7160XROM", price: 78, oldPrice: 85, image: "/images/dushavoy/B7108XROM.jpg" },
+      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU  7108PB", price: 80, oldPrice: 90, image: "/images/dushavoy/B7108PB.jpg" },
+    ]
+  },
+
+  {
+    id: "boou-7109",
+    code: "BOOU-7109",
+    name: "BOOU 7109 Dush Smestiteli",
+    category: "dush-tizimlari",
+    categoryName: "Dush tizimlari & Smestitellar",
+    price: 78,
+    oldPrice: 90,
+    isPopular: true,
+    isNew: true,
+    image: "/images/dushavoy/B7109PB.jpg",
+    description: "Devor ichiga yashirin o'rnatiladigan zamonaviy BOOU 7109 dush smestiteli. Qalin og'ir latun korpus, qulay montaj qutisi (i-box) va tropik dush bilan qo'l leykani boshqaruvchi silliq keramik perekluchatel. Hammom interyerini ortiqcha quvurlarsiz minimalist va hashamatli qiladi.",
+    colors: [
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU 7160XROM", price: 78, oldPrice: 85, image: "/images/dushavoy/B7109XROM.jpg" },
+      { name: "Grafit", hex: "#4a4e54", code: "BOOU 7160NGG", price: 90, oldPrice: 100, image: "/images/dushavoy/B7109NGG.jpg" },
+    ]
+  },
+
+  {
     id: "boou-7160",
     code: "BOOU-7160",
     name: "BOOU 7160 Dush Smestiteli",
     category: "dush-tizimlari",
     categoryName: "Dush tizimlari & Smestitellar",
-    price: 48,
-    oldPrice: 55,
+    price: 80,
+    oldPrice: 100,
     isPopular: true,
     isNew: true,
     image: "/images/dush/B7160PB.jpg",
-    description: "Devor ichiga yashirin o‘rnatiladigan zamonaviy BOOU Platinum 7160 dush smestiteli. Qalin og‘ir latun korpus, qulay montaj qutisi (i-box) va tropik dush bilan qo‘l leykani boshqaruvchi silliq keramik perekluchatel. Hammom interyerini ortiqcha quvurlarsiz minimalist va hashamatli qiladi.",
+    description: "Devor ichiga yashirin o'rnatiladigan zamonaviy BOOU 7160 dush smestiteli. Qalin og'ir latun korpus, qulay montaj qutisi (i-box) va tropik dush bilan qo'l leykani boshqaruvchi silliq keramik perekluchatel. Hammom interyerini ortiqcha quvurlarsiz minimalist va hashamatli qiladi.",
     colors: [
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU Platinum 7160XROM", price: 78, oldPrice: 85, image: "/images/dushavoy/B7160XROM.jpg" },
-      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU Platinum 7160PB", price: 85, oldPrice: 90, image: "/images/dushavoy/B7160PB.jpg" },
-      { name: "Grafit", hex: "#4a4e54", code: "BOOU Platinum 7160NGG", price: 95, oldPrice: 100, image: "/images/dushavoy/B7160NGG.jpg" },
-      { name: "Tilla Mat", hex: "#d4af37", code: "BOOU Platinum 7160NG", price: 95, oldPrice: 100, image: "/images/dushavoy/B7160NG.jpg" }
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU 7160XROM", price: 80, oldPrice: 85, image: "/images/dushavoy/B7160XROM.jpg" },
+      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU 7160PB", price: 85, oldPrice: 90, image: "/images/dushavoy/B7160PB.jpg" },
+      { name: "Grafit", hex: "#4a4e54", code: "BOOU 7160NGG", price: 95, oldPrice: 100, image: "/images/dushavoy/B7160NGG.jpg" },
+      { name: "Tilla Mat", hex: "#d4af37", code: "BOOU 7160NG", price: 95, oldPrice: 100, image: "/images/dushavoy/B7160NG.jpg" }
+    ]
+  },
+
+  {
+    id: "boou-7169",
+    code: "BOOU-7169",
+    name: "BOOU 7169 Dush Smestiteli",
+    category: "dush-tizimlari",
+    categoryName: "Dush tizimlari & Smestitellar",
+    price: 118,
+    oldPrice: 130,
+    isPopular: true,
+    isNew: true,
+    image: "/images/dush/B7169PB.jpg",
+    description: "Devor ichiga yashirin o'rnatiladigan zamonaviy BOOU 7169 dush smestiteli. Qalin og'ir latun korpus, qulay montaj qutisi (i-box) va tropik dush bilan qo'l leykani boshqaruvchi silliq keramik perekluchatel. Hammom interyerini ortiqcha quvurlarsiz minimalist va hashamatli qiladi.",
+    colors: [
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU 7169XROM", price: 118, oldPrice: 125, image: "/images/dushavoy/B7169XROM.jpg" },
+      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU 7169PB", price: 123, oldPrice: 130, image: "/images/dushavoy/B7169PB.jpg" },
+      { name: "Grafit", hex: "#4a4e54", code: "BOOU 7169NGG", price: 130, oldPrice: 145, image: "/images/dushavoy/B7169NGG.jpg" },
+      { name: "Tilla Mat", hex: "#d4af37", code: "BOOU 7169NG", price: 130, oldPrice: 145, image: "/images/dushavoy/B7169NG.jpg" }
+    ]
+  },
+
+  {
+    id: "boou-7131",
+    code: "BOOU-7131",
+    name: "BOOU 7131 Dush Smestiteli",
+    category: "dush-tizimlari",
+    categoryName: "Dush tizimlari & Smestitellar",
+    price: 118,
+    oldPrice: 130,
+    isPopular: true,
+    isNew: true,
+    image: "/images/dush/B7131PB.jpg",
+    description: "Devor ichiga yashirin o'rnatiladigan zamonaviy BOOU 7131 dush smestiteli. Qalin og'ir latun korpus, qulay montaj qutisi (i-box) va tropik dush bilan qo'l leykani boshqaruvchi silliq keramik perekluchatel. Hammom interyerini ortiqcha quvurlarsiz minimalist va hashamatli qiladi.",
+    colors: [
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU 7131XROM", price: 118, oldPrice: 125, image: "/images/dushavoy/B7131XROM.jpg" },
+      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU 7131PB", price: 123, oldPrice: 130, image: "/images/dushavoy/B7131PB.jpg" },
+      { name: "Grafit", hex: "#4a4e54", code: "BOOU 7131NGG", price: 130, oldPrice: 145, image: "/images/dushavoy/B7131NGG.jpg" },
+      { name: "Tilla Mat", hex: "#d4af37", code: "BOOU 7131NG", price: 130, oldPrice: 145, image: "/images/dushavoy/B7131NG.jpg" }
+    ]
+  },
+
+  {
+    id: "boou-8113-3A",
+    code: "BOOU-8113-3A",
+    name: "BOOU 8113-3A Dush Smestiteli",
+    category: "dush-tizimlari",
+    categoryName: "Dush tizimlari & Smestitellar",
+    price: 118,
+    oldPrice: 130,
+    isPopular: true,
+    isNew: true,
+    image: "/images/dush/B8113PB.jpg",
+    description: "Devor ichiga yashirin o'rnatiladigan zamonaviy BOOU 8113 dush smestiteli. Qalin og'ir latun korpus, qulay montaj qutisi (i-box) va tropik dush bilan qo'l leykani boshqaruvchi silliq keramik perekluchatel. Hammom interyerini ortiqcha quvurlarsiz minimalist va hashamatli qiladi.",
+    colors: [
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU 8113-3A XROM", price: 118, oldPrice: 125, image: "/images/dushavoy/B8113XROM.jpg" },
+      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU 8113-3A PB", price: 123, oldPrice: 130, image: "/images/dushavoy/B8113PB.jpg" },
+      { name: "Grafit", hex: "#4a4e54", code: "BOOU 8113-3A NGG", price: 130, oldPrice: 145, image: "/images/dushavoy/B8113NGG.jpg" },
+      { name: "Tilla Mat", hex: "#d4af37", code: "BOOU 8113-3A NG", price: 130, oldPrice: 145, image: "/images/dushavoy/B8113NG.jpg" }
+    ]
+  },
+
+  {
+    id: "boou-6061",
+    code: "BOOU 6061",
+    name: "BOOU 6061 Devor Ichki Dush Smestiteli",
+    category: "dush-tizimlari",
+    categoryName: "Dush tizimlari & Smestitellar",
+    price: 120,
+    oldPrice: 140,
+    isPopular: true,
+    isNew: true,
+    image: "/images/dush/B6061PB.jpg",
+    description: "Devor ichiga yashirin o'rnatiladigan zamonaviy BOOU 6061 dush smestiteli. Qalin og'ir latun korpus, qulay montaj qutisi (i-box) va tropik dush bilan qo'l leykani boshqaruvchi silliq keramik perekluchatel. Hammom interyerini ortiqcha quvurlarsiz minimalist va hashamatli qiladi.",
+    colors: [
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU 6061XROM", price: 125, oldPrice: 135, image: "/images/dushavoy/B6061XROM.jpg" },
+      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU 6061PB", price: 130, oldPrice: 140, image: "/images/dushavoy/B6061PB.jpg" },
+      { name: "Grafit", hex: "#4a4e54", code: "BOOU 6061NGG", price: 150, oldPrice: 160, image: "/images/dushavoy/B6061NGG.jpg" },
+    ]
+  },
+
+  {
+    id: "boou-6072",
+    code: "BOOU 6072",
+    name: "BOOU 6072 Devor Ichki Dush Smestiteli",
+    category: "dush-tizimlari",
+    categoryName: "Dush tizimlari & Smestitellar",
+    price: 130,
+    oldPrice: 150,
+    isPopular: true,
+    isNew: true,
+    image: "/images/dush/B6072PB.jpg",
+    description: "Devor ichiga yashirin o'rnatiladigan zamonaviy BOOU 6072 dush smestiteli. Qalin og'ir latun korpus, qulay montaj qutisi (i-box) va tropik dush bilan qo'l leykani boshqaruvchi silliq keramik perekluchatel. Hammom interyerini ortiqcha quvurlarsiz minimalist va hashamatli qiladi.",
+    colors: [
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU 6072XROM", price: 130, oldPrice: 140, image: "/images/dushavoy/B6072XROM.jpg" },
+      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU 6072PB", price: 135, oldPrice: 145, image: "/images/dushavoy/B6072PB.jpg" },
     ]
   },
 
@@ -495,17 +664,17 @@ export const INITIAL_PRODUCTS = [
     name: "BOOU Platinum 8315 Devor Ichki Dush Smestiteli",
     category: "dush-tizimlari",
     categoryName: "Dush tizimlari & Smestitellar",
-    price: 48,
-    oldPrice: 55,
+    price: 205,
+    oldPrice: 225,
     isPopular: true,
     isNew: true,
     image: "/images/dush/B8315PB.jpg",
-    description: "Devor ichiga yashirin o‘rnatiladigan zamonaviy BOOU Platinum 8315 dush smestiteli. Qalin og‘ir latun korpus, qulay montaj qutisi (i-box) va tropik dush bilan qo‘l leykani boshqaruvchi silliq keramik perekluchatel. Hammom interyerini ortiqcha quvurlarsiz minimalist va hashamatli qiladi.",
+    description: "Devor ichiga yashirin o'rnatiladigan zamonaviy BOOU Platinum 8315 dush smestiteli. Qalin og'ir latun korpus, qulay montaj qutisi (i-box) va tropik dush bilan qo'l leykani boshqaruvchi silliq keramik perekluchatel. Hammom interyerini ortiqcha quvurlarsiz minimalist va hashamatli qiladi.",
     colors: [
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU Platinum 8315-57XROM", price: 33, oldPrice: 36, image: "/images/dushavoy/B8315PLAT-XROM.jpg" },
-      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU Platinum 8315-57PB", price: 42, oldPrice: 50, image: "/images/dushavoy/B8315PLAT-PB.jpg" },
-      { name: "Grafit", hex: "#4a4e54", code: "BOOU Platinum 8315-57NGG", price: 44, oldPrice: 52, image: "/images/dushavoy/B8315PLAT-NGG.jpg" },
-      { name: "Tilla Mat", hex: "#d4af37", code: "BOOU Platinum 8315-57NG", price: 44, oldPrice: 52, image: "/images/dushavoy/B8315PLAT-NG.jpg" }
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU Platinum 8315-57XROM", price: 195, oldPrice: 205, image: "/images/dushavoy/B8315PLAT-XROM.jpg" },
+      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU Platinum 8315-57PB", price: 200, oldPrice: 220, image: "/images/dushavoy/B8315PLAT-PB.jpg" },
+      { name: "Grafit", hex: "#4a4e54", code: "BOOU Platinum 8315-57NGG", price: 215, oldPrice: 225, image: "/images/dushavoy/B8315PLAT-NGG.jpg" },
+      { name: "Tilla Mat", hex: "#d4af37", code: "BOOU Platinum 8315-57NG", price: 215, oldPrice: 225, image: "/images/dushavoy/B8315PLAT-NG.jpg" }
     ]
   },
 
@@ -515,78 +684,80 @@ export const INITIAL_PRODUCTS = [
     name: "BOOU Platinum 8116 Devor Ichki Dush Smestiteli",
     category: "dush-tizimlari",
     categoryName: "Dush tizimlari & Smestitellar",
-    price: 48,
-    oldPrice: 55,
+    price: 210,
+    oldPrice: 230,
     isPopular: true,
     isNew: true,
     image: "/images/dush/B8116PB.jpg",
-    description: "Devor ichiga yashirin o‘rnatiladigan zamonaviy BOOU Platinum 8116 dush smestiteli. Qalin og‘ir latun korpus, qulay montaj qutisi (i-box) va tropik dush bilan qo‘l leykani boshqaruvchi silliq keramik perekluchatel. Hammom interyerini ortiqcha quvurlarsiz minimalist va hashamatli qiladi.",
+    description: "Devor ichiga yashirin o'rnatiladigan zamonaviy BOOU Platinum 8116 dush smestiteli. Qalin og'ir latun korpus, qulay montaj qutisi (i-box) va tropik dush bilan qo'l leykani boshqaruvchi silliq keramik perekluchatel. Hammom interyerini ortiqcha quvurlarsiz minimalist va hashamatli qiladi.",
     colors: [
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU Platinum 8116-57XROM", price: 33, oldPrice: 36, image: "/images/dushavoy/B8116PLAT-XROM.jpg" },
-      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU Platinum 8116-57PB", price: 42, oldPrice: 50, image: "/images/dushavoy/B8116PLAT-PB.jpg" },
-      { name: "Grafit", hex: "#4a4e54", code: "BOOU Platinum 8116-57NGG", price: 44, oldPrice: 52, image: "/images/dushavoy/B8116PLAT-NGG.jpg" },
-      { name: "Tilla Mat", hex: "#d4af37", code: "BOOU Platinum 8116-57NG", price: 44, oldPrice: 52, image: "/images/dushavoy/B8116PLAT-NG.jpg" }
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU Platinum 8116-57XROM", price: 200, oldPrice: 215, image: "/images/dushavoy/B8116PLAT-XROM.jpg" },
+      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU Platinum 8116-57PB", price: 205, oldPrice: 225, image: "/images/dushavoy/B8116PLAT-PB.jpg" },
+      { name: "Grafit", hex: "#4a4e54", code: "BOOU Platinum 8116-57NGG", price: 220, oldPrice: 230, image: "/images/dushavoy/B8116PLAT-NGG.jpg" },
+      { name: "Tilla Mat", hex: "#d4af37", code: "BOOU Platinum 8116-57NG", price: 220, oldPrice: 230, image: "/images/dushavoy/B8116PLAT-NG.jpg" }
     ]
   },
-  
-  {
-    id: "boou-toilet-rimless",
-    code: "BOOU-UN-RM",
-    name: "BOOU Podvesnoy Unitaz Rimless SoftClose",
-    category: "unitaz",
-    categoryName: "BOOU Unitazlar",
-    price: 135,
-    oldPrice: 165,
-    isPopular: true,
-    isNew: true,
-    image: "  ",
-    description: "Hoshiyasiz (Rimless) devorga osiluvchi gigiyenik unitaz. Sekin yopiluvchi dyuroplast qopqoq.",
-    colors: [
-      { name: "Oq Yaltiroq", hex: "#ffffff", code: "BOOU-UN-RM-WHT", price: 135, oldPrice: 165, image: "" },
-      { name: "Mat Qora", hex: "#1f1f1f", code: "BOOU-UN-RM-BLK", price: 175, oldPrice: 210, image: " " }
-    ]
-  },
-  {
-    id: "boou-sink-classic",
-    code: "BOOU-UM-60",
-    name: "BOOU Umivalnik Classic 60 Nakladnoy",
-    category: "umivalnik",
-    categoryName: "BOOU Umivalniklar",
-    price: 45,
-    oldPrice: 55,
-    isPopular: true,
-    isNew: false,
-    image: " ",
-    description: "BOOU sanitariya chinnisidan ishlangan stol usti to'rtburchak umivalnik.",
-    colors: [
-      { name: "Oq Yaltiroq", hex: "#ffffff", code: "BOOU-UM-60-WHT", price: 45, oldPrice: 55, image: " " },
-      { name: "Mat Qora", hex: "#1f1f1f", code: "BOOU-UM-60-BLK", price: 65, oldPrice: 80, image: " " }
-    ]
-  },
-  {
-    id: "boou-mirror-cab",
-    code: "BOOU-OY-60",
-    name: "Oyna Shkaf 60 cm LED Sensorli Anti-Fog",
-    category: "oyna",
-    categoryName: "Oyna va shkaflar",
-    price: 85,
-    oldPrice: 105,
-    isPopular: true,
-    isNew: true,
-    image: " ",
-    description: "Sensorli LED chiroqli oyna-shkaf. Bug'lanishga qarshi isitgich va javonlar."
-  },
-  {
-    id: "boou-bathtub-free",
-    code: "BOOU-VN-170",
-    name: "Alohida Turuvchi Akril Vanna 170cm Freestanding",
-    category: "vanna",
-    categoryName: "Vannalar",
-    price: 390,
-    oldPrice: 460,
-    isPopular: true,
-    isNew: false,
-    image: "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=600&q",
-    description: "100% quyma akrildan ishlangan hashamatli alohida turuvchi vanna."
-  }
+
+
+  // HGFDFG
+  // {
+  //   id: "boou-toilet-rimless",
+  //   code: "BOOU-UN-RM",
+  //   name: "BOOU Podvesnoy Unitaz Rimless SoftClose",
+  //   category: "unitaz",
+  //   categoryName: "BOOU Unitazlar",
+  //   price: 135,
+  //   oldPrice: 165,
+  //   isPopular: true,
+  //   isNew: true,
+  //   image: "  ",
+  //   description: "Hoshiyasiz (Rimless) devorga osiluvchi gigiyenik unitaz. Sekin yopiluvchi dyuroplast qopqoq.",
+  //   colors: [
+  //     { name: "Oq Yaltiroq", hex: "#ffffff", code: "BOOU-UN-RM-WHT", price: 135, oldPrice: 165, image: "" },
+  //     { name: "Mat Qora", hex: "#1f1f1f", code: "BOOU-UN-RM-BLK", price: 175, oldPrice: 210, image: " " }
+  //   ]
+  // },
+  // {
+  //   id: "boou-sink-classic",
+  //   code: "BOOU-UM-60",
+  //   name: "BOOU Umivalnik Classic 60 Nakladnoy",
+  //   category: "umivalnik",
+  //   categoryName: "BOOU Umivalniklar",
+  //   price: 45,
+  //   oldPrice: 55,
+  //   isPopular: true,
+  //   isNew: false,
+  //   image: " ",
+  //   description: "BOOU sanitariya chinnisidan ishlangan stol usti to'rtburchak umivalnik.",
+  //   colors: [
+  //     { name: "Oq Yaltiroq", hex: "#ffffff", code: "BOOU-UM-60-WHT", price: 45, oldPrice: 55, image: " " },
+  //     { name: "Mat Qora", hex: "#1f1f1f", code: "BOOU-UM-60-BLK", price: 65, oldPrice: 80, image: " " }
+  //   ]
+  // },
+  // {
+  //   id: "boou-mirror-cab",
+  //   code: "BOOU-OY-60",
+  //   name: "Oyna Shkaf 60 cm LED Sensorli Anti-Fog",
+  //   category: "oyna",
+  //   categoryName: "Oyna va shkaflar",
+  //   price: 85,
+  //   oldPrice: 105,
+  //   isPopular: true,
+  //   isNew: true,
+  //   image: " ",
+  //   description: "Sensorli LED chiroqli oyna-shkaf. Bug'lanishga qarshi isitgich va javonlar."
+  // },
+  // {
+  //   id: "boou-bathtub-free",
+  //   code: "BOOU-VN-170",
+  //   name: "Alohida Turuvchi Akril Vanna 170cm Freestanding",
+  //   category: "vanna",
+  //   categoryName: "Vannalar",
+  //   price: 390,
+  //   oldPrice: 460,
+  //   isPopular: true,
+  //   isNew: false,
+  //   image: "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=600&q",
+  //   description: "100% quyma akrildan ishlangan hashamatli alohida turuvchi vanna."
+  // }
 ];

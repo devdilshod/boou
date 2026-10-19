@@ -18,7 +18,7 @@ export const Categories = ({ categories, onSelectCategory }) => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+        <div className="flex gap-4 overflow-x-auto flex-nowrap pb-4 snap-x snap-mandatory md:grid md:grid-cols-3 lg:grid-cols-5 md:overflow-visible md:pb-0 sm:gap-6">
           {categories.map(cat => (
             <div
               key={cat.id}
@@ -26,14 +26,13 @@ export const Categories = ({ categories, onSelectCategory }) => {
                 onSelectCategory(cat.id);
                 document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="group cursor-pointer bg-white rounded-2xl p-4 border border-boou-200/80 shadow-xs hover:shadow-md hover:border-boou-400 transition-all duration-200 flex flex-col items-center text-center"
+              className="group cursor-pointer shrink-0 w-[155px] sm:w-auto snap-start bg-white rounded-2xl p-4 border border-boou-200/80 shadow-xs hover:shadow-md hover:border-boou-400 transition-all duration-200 flex flex-col items-center text-center"
             >
               <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden bg-boou-50 mb-3 border border-boou-100 flex items-center justify-center p-1">
                 <img
                   src={cat.img}
                   alt={cat.name}
                   className="w-full h-full object-cover rounded-xl group-hover:scale-110 transition-transform duration-300"
-            
                 />
               </div>
               <h4 className="font-bold text-xs sm:text-sm text-boou-950 group-hover:text-boou-600 transition leading-snug line-clamp-2">
