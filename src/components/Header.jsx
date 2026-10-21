@@ -27,7 +27,7 @@ export const Header = ({ cartCount, wishlistCount, onOpenCart, onOpenWishlist, o
           <div>
             <div className="flex items-center gap-1.5">
               <span className="font-extrabold text-2xl tracking-tight text-boou-900 group-hover:text-boou-700 transition">BOOU</span>
-              <span className="text-[10px] text-center uppercase font-bold tracking-widest bg-boou-100 text-boou-700 p-0.5 me-2 rounded border border-boou-200">   2 / 94 do'kon</span>
+              <span className="text-[10px] text-center uppercase font-bold tracking-widest bg-boou-100 text-boou-700 p-0.5 me-2 rounded border border-boou-200">2 / 94 do'kon</span>
             </div>
             <p className="text-[11px] font-medium text-boou-500 tracking-tight leading-none mt-0.5">Sanuzel & Santexnika Showroom</p>
           </div>

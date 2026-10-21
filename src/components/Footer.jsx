@@ -41,7 +41,7 @@ export const Footer = ({ onSelectCategory }) => {
             <ul className="space-y-2 text-xs text-boou-300">
               <li><a href="#products" onClick={() => onSelectCategory('oshxona-smestitel')} className="hover:text-white transition">Oshxona smestitellari</a></li>
               <li><a href="#products" onClick={() => onSelectCategory('smestitel')} className="hover:text-white transition">Vanna smestitellari</a></li>
-              <li><a href="#products" onClick={() => onSelectCategory('dush')} className="hover:text-white transition">Dush tizimlari</a></li>
+              <li><a href="#products" onClick={() => onSelectCategory('dush-smestitel')} className="hover:text-white transition">Dush smestitellari</a></li>
               <li><a href="#products" onClick={() => onSelectCategory('unitaz')} className="hover:text-white transition">Unitazlar</a></li>
             </ul>
           </div>
@@ -49,10 +49,10 @@ export const Footer = ({ onSelectCategory }) => {
           <div className="lg:col-span-3 space-y-4">
             <h4 className="text-xs font-bold uppercase tracking-wider text-brass-400">Bog'lanish va Ijtimoiy Tarmoqlar</h4>
             <div className="space-y-2 text-xs text-boou-300">
-              <a href="tel:+998712004488" className="block hover:text-white transition">
+              <a href="tel:+998947086300 " className="block hover:text-white transition">
                 <i className="fas fa-phone text-brass-500 mr-2"></i> +998 (94)708 63 00 
               </a>
-              <a href="tel:+998901234567" className="block hover:text-white transition">
+              <a href="tel:+998337086310" className="block hover:text-white transition">
                 <i className="fas fa-mobile-alt text-brass-500 mr-2"></i> +998 (33) 708 63 10
               </a>
               <a href="https://t.me/boou_tashkent" target="_blank" rel="noreferrer" className="block hover:text-white transition text-sky-400">

@@ -12,7 +12,7 @@ export const About = () => {
           <div className="lg:col-span-5 space-y-4">
             <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-boou-100 bg-boou-900 group">
               <img
-                // src="public/images/oshxona/B8093NG.jpg"
+                src="/images/main-img/carton.jpg"
                 alt="BOOU Mahsulotlari Showroomda"
                 className="w-full h-[400px] object-cover group-hover:scale-105 transition-transform duration-700"
               />
