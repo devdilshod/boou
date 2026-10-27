@@ -10,12 +10,12 @@ export const TopBar = () => {
           </span>
           <span className="hidden md:inline text-boou-300">|</span>
           <span className="text-boou-300">
-            <span className="block sm:inline">Qo'yliq bozori santexnika qatori,</span>
-            <span className="block">2-pavilion 94-do'kon</span>
+            <span className="block  sm:inline">Qo'yliq bozori santexnika qatori,</span>
+            <span className="block sm:inline"> 2-pavilion 94-do'kon</span>
           </span>
         </div>
         <div className="flex items-center gap-4 text-[11px] text-boou-300">
-          <a href="tel:+998712004488" className="hover:text-white transition flex items-center gap-1.5">
+          <a href="tel:+998947086300" className="hover:text-white transition flex items-center gap-1.5">
             <i className="fas fa-phone-alt text-brass-500"></i> +998 (94) 708 63 00
           </a>
           <span className="text-boou-700">•</span>

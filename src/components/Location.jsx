@@ -83,11 +83,11 @@ export const Location = () => {
                 <a href="tel:+998947086300" className="p-3 rounded-xl bg-boou-50 hover:bg-boou-100 text-boou-900 transition flex items-center gap-2">
                   <i className="fas fa-phone-alt text-boou-600"></i> +998 (94) 708-63-00
                 </a>
-                <a href="tel:+998901234567" className="p-3 rounded-xl bg-boou-50 hover:bg-boou-100 text-boou-900 transition flex items-center gap-2">
+                {/* <a href="tel:+998901234567" className="p-3 rounded-xl bg-boou-50 hover:bg-boou-100 text-boou-900 transition flex items-center gap-2">
                   <i className="fas fa-mobile-alt text-boou-600"></i> +998 (90) 123-45-67
-                </a>
+                </a> */}
               </div>
-              <a href="@boou_tashkent" target="_blank" rel="noreferrer" className="w-full py-3 px-4 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-xs transition">
+              <a href="https://t.me/boou_tashkent" target="_blank" rel="noreferrer" className="w-full py-3 px-4 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-xs transition">
                 <i className="fab fa-telegram-plane text-sm"></i> Telegram orqali yozish (@boou_tashkent)
               </a>
             </div>
