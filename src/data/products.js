@@ -790,6 +790,26 @@ export const INITIAL_PRODUCTS = [
     ]
   },
   {
+    id: "boou-flexible",
+    code: "BOOU-9184",
+    name: "BOOU Silikon Shlang Qoplamli Oshxona Krani",
+    category: "oshxona-smestitel",
+    categoryName: "Oshxona smestitellari",
+    price: 33,
+    oldPrice: 37,
+    isPopular: true,
+    isNew: false,
+    image: "/images/oshxona/B9184PB.jpg",
+    description: "Erkin egiluvchan silikon naychali kran. Suv oqimini rakovinaning istalgan burchagiga qiynalmasdan yo'naltirish imkonini beradi. Meva-sabzavotlar va chuqur idishlarni yuvish jarayonini bir necha barobar osonlashtiradi.",
+    colors: [
+      { name: "Qora", hex: "#1a1a1a", code: "BOOU-9184PB", price: 34, oldPrice: 37, image: "/images/oshxona/B9184PB.jpg" },
+      { name: "Kulrang", hex: "#656463", code: "BOOU-9184-63", price: 35, oldPrice: 39, image: "/images/oshxona/B9184-63.jpg" },
+      { name: "Xrom Qora", hex: "#C5C6CB", code: "BOOU-9184-67", price: 32, oldPrice: 35, image: "/images/oshxona/B9184-67.jpg" },
+      { name: "Grafit", hex: "#4a4e54", code: "BOOU-9184NGG", price: 38, oldPrice: 42, image: "/images/oshxona/B9184NGG.jpg" },
+    ]
+  },
+
+  {
     id: "boou-kitchen-l-shape",
     code: "BOOU-8093",
     name: "BOOU L-Dizayn Oshxona Smestiteli",
@@ -797,7 +817,7 @@ export const INITIAL_PRODUCTS = [
     categoryName: "Oshxona smestitellari",
     price: 36,
     oldPrice: 42,
-    isPopular: true,
+    isPopular: false,
     isNew: true,
     image: "/images/oshxona/B8093NG.jpg",
     description: "100% zanglamaydigan latun korpus, 360° aylanuvchi L-simon naycha. Katta hajmli idishlarni tozalashda maksimal qulaylik yaratib, oshxona interyeriga zamonaviy ko'rk bag'ishlaydi. Zavod qadog'ida 4 xil premium rang (Mat Qora, Grafit, Xrom, Tilla Mat) tanlovi bilan keladi.",
@@ -1026,14 +1046,14 @@ export const INITIAL_PRODUCTS = [
     name: "BOOU Rakovina Smestiteli",
     category: "rakovina-smestitel",
     categoryName: "Rakovina Smestitellari",
-    price: 15,
-    oldPrice: 17,
+    price: 20,
+    oldPrice: 24,
     isPopular: true,
     isNew: false,
     image: "/images/rakovina/B14A.jpg",
     description: "Kichik va standart rakovinalar uchun mo'ljallangan tejamkor kran. Suvni sachratmaydigan sifatli aerator bilan jihozlangan. O'rnatish oson va ixcham o'lchamga ega bo'lib, har qanday joyga mos tushadi.",
     colors: [
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU-14A-1XROM", price: 33, oldPrice: 36, image: "/images/rakovina/B14A.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-14A-1XROM", price: 20, oldPrice: 24, image: "/images/rakovina/B14A.jpg" },
     ]
   },
   {

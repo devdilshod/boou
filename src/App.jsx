@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { CATEGORIES, INITIAL_PRODUCTS } from './data/products.js';
+import { Preloader } from './components/Preloader.jsx';
 import { TopBar } from './components/TopBar.jsx';
 import { Header } from './components/Header.jsx';
 import { Hero } from './components/Hero.jsx';
@@ -132,6 +133,8 @@ export const App = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-boou-50 text-boou-900 font-sans">
+       <Preloader/>
+
       <TopBar />
 
       <Header
