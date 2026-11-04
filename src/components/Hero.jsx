@@ -63,7 +63,6 @@ export const Hero = ({ onSelectCategory }) => {
                   <p className="text-xs text-boou-200 mt-1">4 xil premial rangda: Mat Qora, Grafit, Xrom, Brushed Gold</p>
                   <div className="mt-3 flex items-center justify-between text-xs pt-2 border-t border-white/20">
                     <span className="font-bold text-brass-400">$26 dan boshlab</span>
-                    <button onClick={() => onSelectCategory('oshxona-smestitel')} className=" hover:text-brass-300">Modellarni ko'rish &rarr;</button>
                   </div>
                 </div>
               </div>

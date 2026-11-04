@@ -97,7 +97,6 @@ export const Products = ({
           </div>
         </div>
 
-        {/* Mahsulotlar to'ri */}
         {products.length === 0 ? (
           <div className="text-center py-16 bg-boou-50 rounded-3xl border border-dashed border-boou-200 my-8">
             <i className="fas fa-search-minus text-4xl text-boou-400 mb-2"></i>

@@ -1,6 +1,7 @@
-
 import React, { useState, useEffect } from 'react';
 import { CATEGORIES, INITIAL_PRODUCTS } from './data/products.js';
+import { db } from './firebase.js';
+import { collection, getDocs, setDoc, doc } from 'firebase/firestore';
 import { Preloader } from './components/Preloader.jsx';
 import { TopBar } from './components/TopBar.jsx';
 import { Header } from './components/Header.jsx';
@@ -13,9 +14,57 @@ import { Footer } from './components/Footer.jsx';
 import { Cart } from './components/Cart.jsx';
 import { ProductModal } from './components/ProductModal.jsx';
 import { Wishlist } from './components/WishList.jsx';
+import { Admin } from './components/Admin.jsx';
 
 export const App = () => {
-  const [products] = useState(INITIAL_PRODUCTS);
+  const [products, setProducts] = useState(INITIAL_PRODUCTS);
+
+  const loadProducts = async () => {
+    try {
+      const querySnapshot = await getDocs(collection(db, 'products'));
+      const dbDataMap = {};
+
+      querySnapshot.forEach((doc) => {
+        dbDataMap[doc.id] = doc.data();
+      });
+
+      // products.js dagi barcha yangi tovarlarni Firebase narxlari bilan birlashtirish
+      const mergedProducts = INITIAL_PRODUCTS.map((localItem) => {
+        const dbItem = dbDataMap[localItem.id];
+
+        if (!dbItem) {
+          return localItem;
+        }
+
+        return {
+          ...localItem,
+          price: dbItem.price ?? localItem.price,
+          oldPrice: dbItem.oldPrice ?? localItem.oldPrice,
+          inStock: dbItem.inStock ?? localItem.inStock,
+          colors: localItem.colors?.map((c) => {
+            const dbColor = dbItem.colors?.find((dc) => dc.code === c.code);
+            return dbColor
+              ? {
+                ...c,
+                price: dbColor.price ?? c.price,
+                oldPrice: dbColor.oldPrice ?? c.oldPrice,
+                inStock: dbColor.inStock ?? c.inStock
+              }
+              : c;
+          })
+        };
+      });
+
+      setProducts(mergedProducts);
+    } catch (error) {
+      console.error("Mahsulotlarni yuklashda xatolik:", error);
+      setProducts(INITIAL_PRODUCTS);
+    }
+  };
+
+  useEffect(() => {
+    loadProducts();
+  }, []);
 
   const [cart, setCart] = useState(() => {
     const saved = localStorage.getItem('boou_cart');
@@ -32,7 +81,6 @@ export const App = () => {
   const [sortBy, setSortBy] = useState('popular');
 
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState('home');
   const [scrollToSection, setScrollToSection] = useState(null);
 
@@ -47,19 +95,14 @@ export const App = () => {
     localStorage.setItem('boou_wishlist', JSON.stringify(wishlist));
   }, [wishlist]);
 
-  useEffect(() => {
-    if (currentPage === 'home' && scrollToSection) {
-      const timer = setTimeout(() => {
-        document.getElementById(scrollToSection)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        setScrollToSection(null);
-      }, 100);
-
-      return () => clearTimeout(timer);
-    }
-  }, [currentPage, scrollToSection]);
-
   const handleAddToCart = (product, color = null, quantity = 1) => {
     const activeColor = color || (product.colors && product.colors[0]) || null;
+
+    if (activeColor?.inStock === false || product.inStock === false) {
+      alert("Kechirasiz, ushbu rangdagi mahsulot omborda qolmagan!");
+      return;
+    }
+
     const cartItemId = activeColor ? `${product.id}-${activeColor.code}` : product.id;
     const price = activeColor ? activeColor.price : product.price;
     const image = activeColor ? activeColor.image : product.image;
@@ -133,90 +176,103 @@ export const App = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-boou-50 text-boou-900 font-sans">
-       <Preloader/>
+      <Preloader />
 
-      <TopBar />
-
-      <Header
-        cartCount={cart.reduce((s, i) => s + i.quantity, 0)}
-        wishlistCount={wishlist.length}
-        onOpenCart={() => setIsCartOpen(true)}
-        onOpenWishlist={() => setCurrentPage('wishlist')}
-        onOpenSearch={() => setIsSearchOpen(true)}
-        currentPage={currentPage}
-        onNavigateHome={handleNavigateHome}
-      />
-
-      {currentPage === 'wishlist' ? (
-        <Wishlist
+      {currentPage === 'admin' ? (
+        <Admin
           products={products}
-          wishlist={wishlist}
-          onToggleLike={handleToggleLike}
-          onAddToCart={handleAddToCart}
-          onOpenModal={handleOpenProductModal}
-          onBack={() => setCurrentPage('home')}
+          onBack={() => {
+            setCurrentPage('home');
+            loadProducts();
+          }}
         />
       ) : (
         <>
-          <main className="flex-1">
-            <Hero onSelectCategory={setSelectedCategory} />
+          <TopBar />
 
-            <Products
-              products={filteredProducts}
-              categories={CATEGORIES}
-              selectedCategory={selectedCategory}
-              onSelectCategory={setSelectedCategory}
-              searchQuery={searchQuery}
-              onSearchChange={setSearchQuery}
-              sortBy={sortBy}
-              onSortChange={setSortBy}
-              onAddToCart={handleAddToCart}
-              onToggleLike={handleToggleLike}
+          <Header
+            cartCount={cart.reduce((s, i) => s + i.quantity, 0)}
+            wishlistCount={wishlist.length}
+            onOpenCart={() => setIsCartOpen(true)}
+            onOpenWishlist={() => setCurrentPage('wishlist')}
+            onOpenSearch={() => { }}
+            currentPage={currentPage}
+            onNavigateHome={handleNavigateHome}
+            onOpenAdmin={() => setCurrentPage('admin')}
+          />
+
+          {currentPage === 'wishlist' ? (
+            <Wishlist
+              products={products}
               wishlist={wishlist}
+              onToggleLike={handleToggleLike}
+              onAddToCart={handleAddToCart}
               onOpenModal={handleOpenProductModal}
+              onBack={() => setCurrentPage('home')}
             />
+          ) : (
+            <>
+              <main className="flex-1">
+                <Hero onSelectCategory={setSelectedCategory} />
 
-            <Categories categories={CATEGORIES} onSelectCategory={setSelectedCategory} />
-            <About />
-            <Location />
-          </main>
+                <Products
+                  products={filteredProducts}
+                  categories={CATEGORIES}
+                  selectedCategory={selectedCategory}
+                  onSelectCategory={setSelectedCategory}
+                  searchQuery={searchQuery}
+                  onSearchChange={setSearchQuery}
+                  sortBy={sortBy}
+                  onSortChange={setSortBy}
+                  onAddToCart={handleAddToCart}
+                  onToggleLike={handleToggleLike}
+                  wishlist={wishlist}
+                  onOpenModal={handleOpenProductModal}
+                />
 
-          <Footer onSelectCategory={setSelectedCategory} />
+                <Categories categories={CATEGORIES} onSelectCategory={setSelectedCategory} />
+                <About />
+                <Location />
+              </main>
+
+              <Footer onSelectCategory={setSelectedCategory} />
+            </>
+          )}
+
+          <Cart
+            isOpen={isCartOpen}
+            onClose={() => setIsCartOpen(false)}
+            cart={cart}
+            onUpdateQuantity={handleUpdateQuantity}
+            onRemove={handleRemoveFromCart}
+            onCheckout={() => {
+              const total = cart.reduce((s, i) => s + i.price * i.quantity, 0);
+              const orderNum = 'BOOU-' + Math.floor(1000 + Math.random() * 9000);
+              const itemsText = cart.map(i => `• ${i.name} (${i.color}) - ${i.quantity} x $${i.price} = $${i.price * i.quantity}`).join('\n');
+              const tgMsg = encodeURIComponent(
+                `Assalomu alaykum! BOOU showroomidan yangi buyurtma:\n` +
+                `Buyurtma kodi: #${orderNum}\n\n` +
+                `Tanlangan mahsulotlar:\n${itemsText}\n\n` +
+                `Jami summa: $${total}\n` +
+                `Do'kon: Qo'yliq bozori 2-pavilion 94-do'kon`
+              );
+              window.open(`https://t.me/boou_tashkent?text=${tgMsg}`, '_blank');
+            }}
+          />
+
+          <ProductModal
+            product={modalProduct}
+            initialColor={modalColor}
+            onClose={handleCloseProductModal}
+            onAddToCart={handleAddToCart}
+            onBuyNow={(prod, col, qty) => {
+              handleAddToCart(prod, col, qty);
+              handleCloseProductModal();
+              setIsCartOpen(true);
+            }}
+          />
         </>
       )}
-
-      <Cart
-        isOpen={isCartOpen}
-        onClose={() => setIsCartOpen(false)}
-        cart={cart}
-        onUpdateQuantity={handleUpdateQuantity}
-        onRemove={handleRemoveFromCart}
-        onCheckout={() => {
-          const total = cart.reduce((s, i) => s + i.price * i.quantity, 0);
-          const orderNum = 'BOOU-' + Math.floor(1000 + Math.random() * 9000);
-          const itemsText = cart.map(i => `• ${i.name} (${i.color}) - ${i.quantity} x $${i.price} = $${i.price * i.quantity}`).join('\n');
-          const tgMsg = encodeURIComponent(
-            `Assalomu alaykum! BOOU showroomidan yangi buyurtma:\n` +
-            `Buyurtma kodi: #${orderNum}\n\n` +
-            `Tanlangan mahsulotlar:\n${itemsText}\n\n` +
-            `Jami summa: $${total}\n` +
-            `Do'kon: Qo'yliq bozori 2-pavilion 94-do'kon`
-          );
-          window.open(`https://t.me/boou_tashkent?text=${tgMsg}`, '_blank');
-        }}
-      />
-
-      <ProductModal
-        product={modalProduct}
-        initialColor={modalColor}
-        onClose={handleCloseProductModal}
-        onAddToCart={handleAddToCart}
-        onBuyNow={(prod, col, qty) => {
-          handleAddToCart(prod, col, qty);
-          handleCloseProductModal();
-          setIsCartOpen(true);
-        }}
-      />
     </div>
   );
 };

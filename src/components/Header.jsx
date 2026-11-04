@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
 
-export const Header = ({ cartCount, wishlistCount, onOpenCart, onOpenWishlist, onOpenSearch, currentPage, onNavigateHome }) => {
+export const Header = ({ cartCount, wishlistCount, onOpenCart, onOpenWishlist, onOpenSearch, currentPage, onNavigateHome, onOpenAdmin }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleNavClick = (e, id) => {
@@ -19,7 +18,6 @@ export const Header = ({ cartCount, wishlistCount, onOpenCart, onOpenWishlist, o
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-boou-200/80 shadow-sm transition-all duration-200" id="main-header">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
 
-        {/* 1. Logo */}
         <a href="#hero" onClick={(e) => handleNavClick(e, 'hero')} className="flex items-center gap-3 group">
           <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-boou-700 to-boou-900 text-white flex items-center justify-center font-bold text-xl tracking-wider shadow-md group-hover:scale-105 transition-transform duration-200 border border-boou-600">
             B
@@ -33,7 +31,6 @@ export const Header = ({ cartCount, wishlistCount, onOpenCart, onOpenWishlist, o
           </div>
         </a>
 
-        {/* 2. Desktop Navigation Links */}
         <nav className="hidden lg:flex items-center space-x-1 font-medium text-sm text-boou-800">
           <a href="#hero" onClick={(e) => handleNavClick(e, 'hero')} className="px-3.5 py-2 rounded-xl hover:text-boou-600 hover:bg-boou-100/70 transition font-semibold">Bosh sahifa</a>
           <a href="#products" onClick={(e) => handleNavClick(e, 'products')} className="px-3.5 py-2 rounded-xl hover:text-boou-600 hover:bg-boou-100/70 transition">Barcha mahsulotlar</a>
@@ -42,8 +39,16 @@ export const Header = ({ cartCount, wishlistCount, onOpenCart, onOpenWishlist, o
           <a href="#manzil" onClick={(e) => handleNavClick(e, 'manzil')} className="px-3.5 py-2 rounded-xl hover:text-boou-600 hover:bg-boou-100/70 transition">Manzil</a>
         </nav>
 
-        {/* 3. Header Action Icons */}
         <div className="flex items-center gap-2 sm:gap-3">
+
+          <button
+            onClick={onOpenAdmin}
+            className="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-xl text-boou-600 hover:bg-boou-100 border border-boou-200/80 font-bold text-xs transition"
+            title="Admin Panel"
+          >
+            <i className="fas fa-tools"></i>
+            <span>Admin</span>
+          </button>
 
           <button onClick={onOpenWishlist} className="relative p-2.5 rounded-xl text-boou-700 hover:text-red-500 hover:bg-boou-100 border border-boou-200/80 transition" title="Sevimlilar">
             <i className="far fa-heart text-lg"></i>
@@ -68,7 +73,6 @@ export const Header = ({ cartCount, wishlistCount, onOpenCart, onOpenWishlist, o
         </div>
       </div>
 
-      {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="lg:hidden border-t border-boou-200 bg-white px-5 py-4 space-y-2 shadow-xl">
           <a href="#hero" onClick={(e) => handleNavClick(e, 'hero')} className="block px-3 py-2 rounded-xl font-semibold text-boou-800 hover:bg-boou-100">Bosh sahifa</a>
@@ -76,6 +80,13 @@ export const Header = ({ cartCount, wishlistCount, onOpenCart, onOpenWishlist, o
           <a href="#categories" onClick={(e) => handleNavClick(e, 'categories')} className="block px-3 py-2 rounded-xl font-medium text-boou-800 hover:bg-boou-100">Kategoriyalar</a>
           <a href="#about" onClick={(e) => handleNavClick(e, 'about')} className="block px-3 py-2 rounded-xl font-medium text-boou-800 hover:bg-boou-100">BOOU haqida</a>
           <a href="#manzil" onClick={(e) => handleNavClick(e, 'manzil')} className="block px-3 py-2 rounded-xl font-medium text-boou-800 hover:bg-boou-100">Manzil va Showroom</a>
+
+          <button
+            onClick={() => { setMobileMenuOpen(false); onOpenAdmin(); }}
+            className="w-full text-left px-3 py-2 rounded-xl font-bold text-boou-600 bg-boou-50 hover:bg-boou-100 flex items-center gap-2"
+          >
+            <i className="fas fa-tools"></i> Admin Panel
+          </button>
         </div>
       )}
     </header>

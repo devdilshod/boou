@@ -46,7 +46,7 @@ export const Wishlist = ({
             <i className="far fa-heart text-5xl text-boou-300"></i>
 
             <h2 className="text-xl font-bold text-boou-900 mt-4">
-              Sevimlilar hozircha bo‘sh
+              Sevimlilar hozircha bo'sh
             </h2>
 
             <p className="text-boou-500 mt-2 mb-6">
@@ -58,7 +58,7 @@ export const Wishlist = ({
               onClick={onBack}
               className="px-5 py-3 rounded-xl bg-boou-600 hover:bg-boou-700 text-white font-bold"
             >
-              Mahsulotlarni ko‘rish
+              Mahsulotlarni ko'rish
             </button>
           </div>
         ) : (

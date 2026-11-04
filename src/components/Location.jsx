@@ -2,24 +2,26 @@ import React, { useEffect } from 'react';
 
 export const Location = () => {
   useEffect(() => {
+    let mapInstance = null; 
+  
     if (window.L) {
       try {
         const container = document.getElementById('map-container');
         if (container && !container._leaflet_id) {
-          const map = window.L.map('map-container').setView([41.237743, 69.334652], 15);
+          mapInstance = window.L.map('map-container').setView([41.237743, 69.334652], 15);
           window.L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; OpenStreetMap'
-          }).addTo(map);
-
+          }).addTo(mapInstance);
+  
           const customIcon = window.L.divIcon({
             className: 'custom-map-marker',
             html: `<div style="background-color: #695344; color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; border: 3px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.3); font-weight: bold;"><i class="fas fa-shower"></i></div>`,
             iconSize: [36, 36],
             iconAnchor: [18, 36]
           });
-
+  
           window.L.marker([41.237743, 69.334652], { icon: customIcon })
-            .addTo(map)
+            .addTo(mapInstance)
             .bindPopup("<b>BOOU Showroom — 94-do'kon</b><br>Qo'yliq santexnika qatori, 2-pavilion.<br><a href='https://maps.google.com/maps?q=41.237743,69.334652&ll=41.237743,69.334652&z=16' target='_blank' style='color:#2563eb;font-weight:bold;'>Google Maps'da ochish</a>")
             .openPopup();
         }
@@ -27,6 +29,13 @@ export const Location = () => {
         console.warn('Map load:', err);
       }
     }
+  
+    // Sahifa almashtirilganda xaritani tozalash
+    return () => {
+      if (mapInstance) {
+        mapInstance.remove();
+      }
+    };
   }, []);
 
   return (

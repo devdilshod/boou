@@ -769,6 +769,7 @@ export const CATEGORIES = [
   { id: "dush-smestitel", name: "BOOU Dush tizimlari", img: "/images/dushavoy/B7160PB.jpg" },
   { id: "elektron-sushilka", name: "BOOU Elektron Sushilkalari", img: "/images/sushka/2177545-NG.jpg" },
   { id: "boou-bide", name: "BOOU Bide Smestiteli", img: "/images/bide/B8315NGG.jpg" },
+  { id: "boou-taxorat", name: "BOOU Taxorat Smestiteli", img: "/images/taxorat/B8315NG.jpg" },
 ];
 
 export const INITIAL_PRODUCTS = [
@@ -786,7 +787,7 @@ export const INITIAL_PRODUCTS = [
     image: "/images/oshxona/B10F.jpg",
     description: "Zanglamaydigan latun korpus va keramik kartrijli klassik oshxona krani. Ixcham va baland shakli idish yuvishda qo'l keladi, suvni esa bir maromda sachratmasdan oqizadi. O'rnatish jarayoni oson bo'lib, barcha turdagi rakovinalarga bemalol mos tushadi.",
     colors: [
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU-9205XROM", price: 17, oldPrice: 20, image: "/images/oshxona/B10F.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-9205", price: 17, oldPrice: 20, image: "/images/oshxona/B10F.jpg" },
     ]
   },
   {
@@ -800,7 +801,7 @@ export const INITIAL_PRODUCTS = [
     isPopular: true,
     isNew: false,
     image: "/images/oshxona/B9184PB.jpg",
-    description: "Erkin egiluvchan silikon naychali kran. Suv oqimini rakovinaning istalgan burchagiga qiynalmasdan yo'naltirish imkonini beradi. Meva-sabzavotlar va chuqur idishlarni yuvish jarayonini bir necha barobar osonlashtiradi.",
+    description: "Moslashuvchan silikon naychali klassik dumaloq korpusli kran. Shlangi 360° erkin bukiladi va chuqur idishlar hamda mevalarni yuvishda suvni rakovinaning istalgan nuqtasiga sachratmasdan yo'naltiradi. Kundalik oshxona yumushlarini maksimal yengillashtiradi.",
     colors: [
       { name: "Qora", hex: "#1a1a1a", code: "BOOU-9184PB", price: 34, oldPrice: 37, image: "/images/oshxona/B9184PB.jpg" },
       { name: "Kulrang", hex: "#656463", code: "BOOU-9184-63", price: 35, oldPrice: 39, image: "/images/oshxona/B9184-63.jpg" },
@@ -843,7 +844,7 @@ export const INITIAL_PRODUCTS = [
     colors: [
       { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-9243PB", price: 34, oldPrice: 37, image: "/images/oshxona/B9243PB.jpg" },
       { name: "Grafit", hex: "#4a4e54", code: "BOOU-9243NGG", price: 35, oldPrice: 39, image: "/images/oshxona/B9243NGG.jpg" },
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU-9243XROM", price: 32, oldPrice: 35, image: "/images/oshxona/B9243XROM.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-9243", price: 32, oldPrice: 35, image: "/images/oshxona/B9243XROM.jpg" },
       { name: "Tilla Mat", hex: "#d4af37", code: "BOOU-9243NG", price: 36, oldPrice: 40, image: "/images/oshxona/B9243NG.jpg" }
     ]
   },
@@ -862,7 +863,7 @@ export const INITIAL_PRODUCTS = [
     colors: [
       { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-9205PB", price: 52, oldPrice: 57, image: "/images/oshxona/B9205PB.jpg" },
       { name: "Grafit", hex: "#4a4e54", code: "BOOU-9205NGG", price: 52, oldPrice: 57, image: "/images/oshxona/B9205NGG.jpg" },
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU-9205XROM", price: 50, oldPrice: 55, image: "/images/oshxona/B9205XROM.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-9205", price: 50, oldPrice: 55, image: "/images/oshxona/B9205XROM.jpg" },
       { name: "Tilla Mat", hex: "#d4af37", code: "BOOU-9205NG", price: 55, oldPrice: 60, image: "/images/oshxona/B9205NG.jpg" }
     ]
   },
@@ -947,7 +948,7 @@ export const INITIAL_PRODUCTS = [
     isPopular: true,
     isNew: false,
     image: "/images/vanna/B5330.jpg",
-    description: "Latun qotishmasidan yasalgan ixcham vanna krani. 5 funksiyali leyka va to'liq montaj to'plami bilan birga keladi. Suv bosimiga o'ta chidamli bo'lib, kundalik foydalanish uchun juda qulay.",
+    description: "Klassik 2 dastali va qulay pol oborot (yarim burilishli kran-buxsa) mexanizmiga ega ixcham vanna smestiteli. Dastalari yengil harakatlanib, suv harorati va bosimini bir lahzada aniq sozlaydi. Zanglamaydigan latun korpus, mustahkam dush perekluchateli, 5 funksiyali leyka hamda 1.5 metrli egiluvchan shlang to'plami bilan ta'minlangan.",
     colors: [
       { name: "Xrom", hex: "#e2e8f0", code: "BOOU-5330-18", price: 25, oldPrice: 29, image: "/images/vanna/B5330.jpg" },
     ]
@@ -967,7 +968,7 @@ export const INITIAL_PRODUCTS = [
     colors: [
       { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-8280-18PB", price: 42, oldPrice: 50, image: "/images/vanna/B8280PB.jpg" },
       { name: "Grafit", hex: "#4a4e54", code: "BOOU-8280-18NGG", price: 44, oldPrice: 52, image: "/images/vanna/B8280NGG.jpg" },
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8280-18XROM", price: 33, oldPrice: 36, image: "/images/vanna/B8280XROM.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8280-18", price: 33, oldPrice: 36, image: "/images/vanna/B8280XROM.jpg" },
       { name: "Tilla Mat", hex: "#d4af37", code: "BOOU-8280-18NG", price: 44, oldPrice: 52, image: "/images/vanna/B8280NG.jpg" }
     ]
   },
@@ -996,16 +997,16 @@ export const INITIAL_PRODUCTS = [
     isPopular: true,
     isNew: false,
     image: "/images/vanna/B8215.jpg",
-    description: "Latun korpusli vanna krani. 5 funksiyali leyka bilan jihozlangan bo'lib, suvni o'ta qulay taqsimlaydi. Mat Qora va Xrom ranglarda taqdim etilib, har qanday interyerga mos tushadi.",
+    description: "Soft Hi-Tech uslubidagi zamonaviy vanna smestiteli. Tekis yuzalar va nozik burchaklar uyg'unligi tufayli o'tkir qirralarsiz, qo'lga juda qulay va xavfsiz shaklga ega. Mustahkam latun korpus, 5 funksiyali dush leykasi va 1.5 metrli egiluvchan shlang bilan ta'minlangan. Suv bosimini mayin taqsimlab, hammomga zamonaviy ko'rk bag'ishlaydi.",
     colors: [
       { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-8215-18PB", price: 42, oldPrice: 50, image: "/images/vanna/B8215PB.jpg" },
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8280-18XROM", price: 33, oldPrice: 36, image: "/images/vanna/B8215XROM.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8280-18", price: 33, oldPrice: 36, image: "/images/vanna/B8215XROM.jpg" },
     ]
   },
   {
     id: "boou-bath-8113",
     code: "BOOU-8113-45",
-    name: "BOOU Platinum 8113 Vanna Smestiteli",
+    name: "BOOU Platinum Vanna Smestiteli",
     category: "smestitel",
     categoryName: "Vanna Smestitellari",
     price: 33,
@@ -1017,13 +1018,13 @@ export const INITIAL_PRODUCTS = [
     colors: [
       { name: "Grafit", hex: "#4a4e54", code: "BOOU-8113-45NGG", price: 75, oldPrice: 85, image: "/images/vanna/B8113PLAT-NGG.jpg" },
       { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-8113-45PB", price: 68, oldPrice: 78, image: "/images/vanna/B8113PLAT-PB.jpg" },
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8113-45XROM", price: 75, oldPrice: 85, image: "/images/vanna/B8113PLAT-XROM.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8113-45", price: 75, oldPrice: 85, image: "/images/vanna/B8113PLAT-XROM.jpg" },
     ]
   },
   {
     id: "boou-bath-8116",
     code: "BOOU-8116-45",
-    name: "BOOU Platinum 8116 Vanna Smestiteli",
+    name: "BOOU Platinum Vanna Smestiteli",
     category: "smestitel",
     categoryName: "Vanna Smestitellari",
     price: 33,
@@ -1034,7 +1035,7 @@ export const INITIAL_PRODUCTS = [
     description: "Platinum original qadog'idagi latun korpusli vanna krani. Silliq boshqaruv va bardoshli qoplamaga ega. Hammom interyeriga o'ziga xos joziba qo'shib, uzoq xizmat qiladi.",
     colors: [
       { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-8116-45PB", price: 73, oldPrice: 82, image: "/images/vanna/B8116PLAT-PB.jpg" },
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8116-45XROM", price: 68, oldPrice: 78, image: "/images/vanna/B8116PLAT-XROM.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8116-45", price: 68, oldPrice: 78, image: "/images/vanna/B8116PLAT-XROM.jpg" },
       { name: "Tilla Mat", hex: "#d4af37", code: "BOOU-8116-45NG", price: 75, oldPrice: 85, image: "/images/vanna/B8116PLAT-NG.jpg" }
     ]
   },
@@ -1053,7 +1054,7 @@ export const INITIAL_PRODUCTS = [
     image: "/images/rakovina/B14A.jpg",
     description: "Kichik va standart rakovinalar uchun mo'ljallangan tejamkor kran. Suvni sachratmaydigan sifatli aerator bilan jihozlangan. O'rnatish oson va ixcham o'lchamga ega bo'lib, har qanday joyga mos tushadi.",
     colors: [
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU-14A-1XROM", price: 20, oldPrice: 24, image: "/images/rakovina/B14A.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-14A-1", price: 20, oldPrice: 24, image: "/images/rakovina/B14A.jpg" },
     ]
   },
   {
@@ -1069,7 +1070,7 @@ export const INITIAL_PRODUCTS = [
     image: "/images/rakovina/B8276.jpg",
     description: "Kundalik foydalanish uchun qulay balandlikdagi xrom qoplamali rakovina krani. Mustahkam korpusi suv bosimiga bardosh berib, yillar davomida o'z porlashini yo'qotmaydi.",
     colors: [
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8276-1XROM", price: 33, oldPrice: 36, image: "/images/rakovina/B8276.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8276-1", price: 33, oldPrice: 36, image: "/images/rakovina/B8276.jpg" },
     ]
   },
   {
@@ -1085,7 +1086,7 @@ export const INITIAL_PRODUCTS = [
     image: "/images/rakovina/B8280XROM.jpg",
     description: "Latun korpusli ommabop rakovina krani. Silliq boshqaruv mexanizmi suvni aniq tartibga soladi. 4 xil rang variantida mavjud bo'lib, xonangizga zamonaviy ko'rk qo'shadi.",
     colors: [
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8280-1XROM", price: 33, oldPrice: 36, image: "/images/rakovina/B8280XROM.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8280-1", price: 33, oldPrice: 36, image: "/images/rakovina/B8280XROM.jpg" },
       { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-8280-1PB", price: 42, oldPrice: 50, image: "/images/rakovina/B8280PB.jpg" },
       { name: "Grafit", hex: "#4a4e54", code: "BOOU-8280-1NGG", price: 44, oldPrice: 52, image: "/images/rakovina/B8280NGG.jpg" },
       { name: "Tilla Mat", hex: "#d4af37", code: "BOOU-8280-1NG", price: 44, oldPrice: 52, image: "/images/rakovina/B8280NG.jpg" }
@@ -1102,9 +1103,9 @@ export const INITIAL_PRODUCTS = [
     isPopular: true,
     isNew: true,
     image: "/images/rakovina/B8215XROM.jpg",
-    description: "Ergonomik shakldagi keramik kartrijli rakovina krani. Qo'l yuvish jarayonini maksimal qulaylashtirib, interyerga zamonaviy ko'rk qo'shadi. Sifati va ishonchliligi bilan ajralib turadi.",
+    description: "Soft Hi-Tech dizayndagi nafis rakovina krani. Qat'iy to'g'ri chiziqlar o'rniga burchaklari mayin yumshatilgan bo'lib, sanuzelga zamonaviy, ammo osoyishta ko'rinish beradi. Korpusi qalin quyma latundan ishlangan, silliq harakatlanuvchi keramik kartriji esa suv haroratini aniq sozlaydi. Suvni sachratmaydigan tejamkor aerator bilan jihozlangan.",
     colors: [
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8215-18XROM", price: 33, oldPrice: 36, image: "/images/rakovina/B8215XROM.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8215-18", price: 33, oldPrice: 36, image: "/images/rakovina/B8215XROM.jpg" },
       { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-8215-18PB", price: 42, oldPrice: 50, image: "/images/rakovina/B8215PB.jpg" },
       { name: "Tilla Mat", hex: "#d4af37", code: "BOOU-8215-18NG", price: 44, oldPrice: 52, image: "/images/rakovina/B8215NG.jpg" }
     ]
@@ -1122,7 +1123,7 @@ export const INITIAL_PRODUCTS = [
     image: "/images/rakovina/B8086.jpg",
     description: "Og'ir latun korpusli premium rakovina krani. Uzoq muddatli chidamlilikka ega bo'lib, har qanday qattiq suv sharoitida ham o'z sifatini yo'qotmasdan muammosiz xizmat qiladi.",
     colors: [
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8086-1XROM", price: 33, oldPrice: 36, image: "/images/rakovina/B8086.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8086-1", price: 33, oldPrice: 36, image: "/images/rakovina/B8086.jpg" },
     ]
   },
   {
@@ -1138,7 +1139,7 @@ export const INITIAL_PRODUCTS = [
     image: "/images/rakovina/B8089.jpg",
     description: "Zamonaviy dizaynli rakovina krani. Suv bosimini yumshoq boshqaruvchi mexanizm bilan jihozlangan bo'lib, o'rnatish uchun barcha kerakli detallar to'plamda birga beriladi.",
     colors: [
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8089-1XROM", price: 33, oldPrice: 36, image: "/images/rakovina/B8089.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8089-1", price: 33, oldPrice: 36, image: "/images/rakovina/B8089.jpg" },
     ]
   },
   {
@@ -1154,7 +1155,7 @@ export const INITIAL_PRODUCTS = [
     image: "/images/rakovina/B8093.jpg",
     description: "Dog' qoldirmaydigan yuzaga ega chidamli rakovina krani. Tozalash jarayoni o'ta oson va qulay. 4 xil rang tanlovi orqali xohlagan dizaynga osongina moslab tanlash mumkin.",
     colors: [
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8093-1XROM", price: 33, oldPrice: 36, image: "/images/rakovina/B8093XROM.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8093-1", price: 33, oldPrice: 36, image: "/images/rakovina/B8093XROM.jpg" },
       { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-8093-1PB", price: 42, oldPrice: 50, image: "/images/rakovina/B8093PB.jpg" },
       { name: "Grafit", hex: "#4a4e54", code: "BOOU-8093-1NGG", price: 44, oldPrice: 52, image: "/images/rakovina/B8093NGG.jpg" },
       { name: "Tilla Mat", hex: "#d4af37", code: "BOOU-8093-1NG", price: 44, oldPrice: 52, image: "/images/rakovina/B8093NG.jpg" }
@@ -1173,7 +1174,7 @@ export const INITIAL_PRODUCTS = [
     image: "/images/rakovina/B8321NGG.jpg",
     description: "Minimalist uslubdagi rakovina krani. Tejamkor aerator va ishonchli kartrij bilan ta'minlangan bo'lib, suvni bir maromda oqizadi. Interyeringizga o'zgacha joziba va qulaylik kiritadi.",
     colors: [
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8321-1XROM", price: 33, oldPrice: 36, image: "/images/rakovina/B8321XROM.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8321-1", price: 33, oldPrice: 36, image: "/images/rakovina/B8321XROM.jpg" },
       { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-8321-1PB", price: 42, oldPrice: 50, image: "/images/rakovina/B8321PB.jpg" },
       { name: "Grafit", hex: "#4a4e54", code: "BOOU-8321-1NGG", price: 44, oldPrice: 52, image: "/images/rakovina/B8321NGG.jpg" },
       { name: "Tilla Mat", hex: "#d4af37", code: "BOOU-8321-1NG", price: 44, oldPrice: 52, image: "/images/rakovina/B8321NG.jpg" }
@@ -1193,10 +1194,29 @@ export const INITIAL_PRODUCTS = [
     image: "/images/rakovina/B8113XROM.jpg",
     description: "BOOU Platinum 8113 Rakovina Smestiteli — zamonaviy dizayn va nafis ko'rinishni o'zida mujassam etgan model. Chiroyli shakli rakovina zonasiga premium uslub bag'ishlab, sanuzelingiz interyerini yanada jozibali ko'rsatadi. Boshqa BOOU santexnika jihozlari bilan uyg'unlashib, yaxlit va zamonaviy muhit yaratishga yordam beradi. BOOU Platinum 8113 — sifatli ko'rinish, qulaylik va zamonaviy uslubni qadrlaydiganlar uchun munosib tanlov.",
     colors: [
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8113-1XROM", price: 33, oldPrice: 36, image: "/images/rakovina/B8113XROM.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8113-1", price: 33, oldPrice: 36, image: "/images/rakovina/B8113XROM.jpg" },
       { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-8113-1PB", price: 42, oldPrice: 50, image: "/images/rakovina/B8113PB.jpg" },
       { name: "Grafit", hex: "#4a4e54", code: "BOOU-8113-1NGG", price: 44, oldPrice: 52, image: "/images/rakovina/B8113NGG.jpg" },
       { name: "Tilla Mat", hex: "#d4af37", code: "BOOU-8113-1NG", price: 44, oldPrice: 52, image: "/images/rakovina/B8113NG.jpg" }
+    ]
+  },
+  {
+    id: "boou-8116-1",
+    code: "BOOU-8116-1",
+    name: "BOOU Rakovina Smestiteli",
+    category: "rakovina-smestitel",
+    categoryName: "Rakovina Smestitellari",
+    price: 45,
+    oldPrice: 55,
+    isPopular: false,
+    isNew: true,
+    image: "/images/rakovina/B8116XROM.jpg",
+    description: "BOOU Platinum 8116 — silliq aerodinamik shakl va nafis chiziqlar uyg'unligidagi elita rakovina smestiteli. Oldinga mayin egilgan yassi jo'mragi va yuqoriga nafis qayrilgan ergonomik dastasi qo'lga mukammal o'tiradi hamda suv haroratini bir barmoq harakati bilan aniq boshqarish imkonini beradi. Qalin quyma latun korpusi suv bosimiga o'ta chidamli bo'lib, burchak ostida joylashgan tejamkor aeratori suvni mayin ko'pirtirib, sachratmasdan oqizadi. Yuqori sifatli dog' tutmas metall qoplamasi va uzoq xizmat qiluvchi keramik kartriji bilan sanuzelga haqiqiy zamonaviy hashamat bag'ishlaydi.",
+    colors: [
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8116-1", price: 33, oldPrice: 36, image: "/images/rakovina/B8116XROM.jpg" },
+      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-8116-1PB", price: 42, oldPrice: 50, image: "/images/rakovina/B8116PB.jpg" },
+      { name: "Grafit", hex: "#4a4e54", code: "BOOU-8116-1NGG", price: 44, oldPrice: 52, image: "/images/rakovina/B8116NGG.jpg" },
+      { name: "Tilla Mat", hex: "#d4af37", code: "BOOU-8116-1NG", price: 44, oldPrice: 52, image: "/images/rakovina/B8116NG.jpg" }
     ]
   },
   {
@@ -1212,7 +1232,7 @@ export const INITIAL_PRODUCTS = [
     image: "/images/rakovina/B8315XROM.jpg",
     description: "BOOU Platinum 8315 Rakovina Smestiteli — zamonaviy shakl va nafis dizaynga ega bo'lgan model. O'ziga xos ko'rinishi rakovina zonasiga chiroyli va tartibli ko'rinish bag'ishlaydi. Turli uslubdagi sanuzel interyerlari bilan uyg'unlashib, hammomingizning umumiy dizaynini to'ldiradi. BOOU 8315 — kundalik foydalanish va zamonaviy interyer uchun mos tanlov.",
     colors: [
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8315-1XROM", price: 33, oldPrice: 36, image: "/images/rakovina/B8315XROM.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8315-1", price: 33, oldPrice: 36, image: "/images/rakovina/B8315XROM.jpg" },
       { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-8315-1PB", price: 42, oldPrice: 50, image: "/images/rakovina/B8315PB.jpg" },
       { name: "Grafit", hex: "#4a4e54", code: "BOOU-8315-1NGG", price: 44, oldPrice: 52, image: "/images/rakovina/B8315NGG.jpg" },
       { name: "Tilla Mat", hex: "#d4af37", code: "BOOU-8315-1NG", price: 44, oldPrice: 52, image: "/images/rakovina/B8315NG.jpg" }
@@ -1232,7 +1252,7 @@ export const INITIAL_PRODUCTS = [
     description: "Stol ustiga o'rnatiladigan chuqur rakovinalar uchun mo'ljallangan baland Platinum kran. Keng qamrovli foydalanish imkoniyatini berib, hammomga hashamatli va zamonaviy ko'rinish beradi.",
     colors: [
       { name: "Grafit", hex: "#4a4e54", code: "BOOU-8093-1NGG", price: 55, oldPrice: 62, image: "/images/rakovina/B8093BJ-NGG.jpg" },
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8093-1XROM", price: 47, oldPrice: 55, image: "/images/rakovina/B8093BJ-XROM.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8093-1", price: 47, oldPrice: 55, image: "/images/rakovina/B8093BJ-XROM.jpg" },
       { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-8093-1PB", price: 47, oldPrice: 55, image: "/images/rakovina/B8093BJ-PB.jpg" },
       { name: "Tilla Mat", hex: "#d4af37", code: "BOOU-8093-1NG", price: 55, oldPrice: 62, image: "/images/rakovina/B8093BJ-NG.jpg" }
     ]
@@ -1251,7 +1271,7 @@ export const INITIAL_PRODUCTS = [
     description: "Quyma latundan ishlangan baland Platinum rakovina krani. Mustahkam qoplamali va o'ta qulay boshqaruv mexanizmiga ega. Zamonaviy yechimlarni yoqtiradiganlar uchun eng maqbul tanlov.",
     colors: [
       { name: "Grafit", hex: "#4a4e54", code: "BOOU-8116-1NGG", price: 50, oldPrice: 57, image: "/images/rakovina/B8116BJ-NGG.jpg" },
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8116-1XROM", price: 40, oldPrice: 48, image: "/images/rakovina/B8116BJ-XROM.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8116-1", price: 40, oldPrice: 48, image: "/images/rakovina/B8116BJ-XROM.jpg" },
       { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-8116-1PB", price: 45, oldPrice: 52, image: "/images/rakovina/B8116BJ-PB.jpg" },
       { name: "Tilla Mat", hex: "#d4af37", code: "BOOU-8116-1NG", price: 50, oldPrice: 57, image: "/images/rakovina/B8116BJ-NG.jpg" }
     ]
@@ -1267,10 +1287,10 @@ export const INITIAL_PRODUCTS = [
     isPopular: false,
     isNew: true,
     image: "/images/rakovina/B8315NGG.jpg",
-    description: "Nafis shakldagi baland rakovina krani. Uzoq yillik ishonchli xizmat qiladi va suvni bir maromda taqsimlaydi. O'rnatish oson, ixcham hamda har qanday interyerga mos keladi.",
+    description: "Stol ustiga o'rnatiladigan chasha (nakladnoy) rakovinalar uchun maxsus ishlangan baland korpusli Platinum kran. Kengaytirilgan balandligi qo'l yuvishda maksimal erkinlik yaratadi, mayin oquvchi aeratori esa suv sachrashining oldini oladi. Vannaxonaga elita darajasidagi joziba bag'ishlaydi.",
     colors: [
       { name: "Tilla Mat", hex: "#d4af37", code: "BOOU-8315-1NG", price: 55, oldPrice: 62, image: "/images/rakovina/B8315PLAT-NG.jpg" },
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8315-1XROM", price: 47, oldPrice: 55, image: "/images/rakovina/B8315PLAT-XROM.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8315-1", price: 47, oldPrice: 55, image: "/images/rakovina/B8315PLAT-XROM.jpg" },
       { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-8315-1PB", price: 50, oldPrice: 58, image: "/images/rakovina/B8315PLAT-PB.jpg" },
       { name: "Grafit", hex: "#4a4e54", code: "BOOU-8315-1NGG", price: 55, oldPrice: 62, image: "/images/rakovina/B8315PLAT-NGG.jpg" },
     ]
@@ -1290,7 +1310,7 @@ export const INITIAL_PRODUCTS = [
     image: "/images/dushavoy/B7103PB.jpg",
     description: "Vanna va dush kabinalari uchun stoykali dush smestiteli. Latun korpus va to'liq dush jamlanmasiga ega. Suv bosimini o'ta mukammal boshqarib, har galgi foydalanishda katta qulaylik yaratadi.",
     colors: [
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU 7160XROM", price: 78, oldPrice: 85, image: "/images/dushavoy/B7103XROM.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-7103", price: 78, oldPrice: 85, image: "/images/dushavoy/B7103XROM.jpg" },
     ]
   },
   {
@@ -1306,8 +1326,8 @@ export const INITIAL_PRODUCTS = [
     image: "/images/dushavoy/B7108PB.jpg",
     description: "Stoykali dush kabinasi krani. Suv bosimini barqaror taqsimlovchi ishonchli model bo'lib, o'rnatishda barcha kerakli qismlar to'plam bilan birga beriladi va uzoq xizmat qiladi.",
     colors: [
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU 7160XROM", price: 78, oldPrice: 85, image: "/images/dushavoy/B7108XROM.jpg" },
-      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU  7108PB", price: 80, oldPrice: 90, image: "/images/dushavoy/B7108PB.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-7108", price: 78, oldPrice: 85, image: "/images/dushavoy/B7108XROM.jpg" },
+      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-7108PB", price: 80, oldPrice: 90, image: "/images/dushavoy/B7108PB.jpg" },
     ]
   },
   {
@@ -1323,8 +1343,8 @@ export const INITIAL_PRODUCTS = [
     image: "/images/dushavoy/B7109PB.jpg",
     description: "Og'ir latun korpusli stoykali dush krani. Keramik perekluchatel orqali dush leykasiga suvni silliq yo'naltiradi. Uzoq muddatli va muammosiz xizmat qilish uchun maxsus ishlangan.",
     colors: [
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU 7160XROM", price: 78, oldPrice: 85, image: "/images/dushavoy/B7109XROM.jpg" },
-      { name: "Grafit", hex: "#4a4e54", code: "BOOU 7160NGG", price: 90, oldPrice: 100, image: "/images/dushavoy/B7109NGG.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-7109", price: 78, oldPrice: 85, image: "/images/dushavoy/B7109XROM.jpg" },
+      { name: "Grafit", hex: "#4a4e54", code: "BOOU-7109NGG", price: 90, oldPrice: 100, image: "/images/dushavoy/B7109NGG.jpg" },
     ]
   },
   {
@@ -1340,10 +1360,10 @@ export const INITIAL_PRODUCTS = [
     image: "/images/dush/B7160PB.jpg",
     description: "Stoykali universal dush smestiteli. Mustahkam quyma latun va 4 xil rang variantiga ega. Dush qabul qilish jarayonini o'ta yoqimli, qulay va xavfsiz holatga keltiradi.",
     colors: [
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU 7160XROM", price: 80, oldPrice: 85, image: "/images/dushavoy/B7160XROM.jpg" },
-      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU 7160PB", price: 85, oldPrice: 90, image: "/images/dushavoy/B7160PB.jpg" },
-      { name: "Grafit", hex: "#4a4e54", code: "BOOU 7160NGG", price: 95, oldPrice: 100, image: "/images/dushavoy/B7160NGG.jpg" },
-      { name: "Tilla Mat", hex: "#d4af37", code: "BOOU 7160NG", price: 95, oldPrice: 100, image: "/images/dushavoy/B7160NG.jpg" }
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-7160", price: 80, oldPrice: 85, image: "/images/dushavoy/B7160XROM.jpg" },
+      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-7160PB", price: 85, oldPrice: 90, image: "/images/dushavoy/B7160PB.jpg" },
+      { name: "Grafit", hex: "#4a4e54", code: "BOOU-7160NGG", price: 95, oldPrice: 100, image: "/images/dushavoy/B7160NGG.jpg" },
+      { name: "Tilla Mat", hex: "#d4af37", code: "BOOU-7160NG", price: 95, oldPrice: 100, image: "/images/dushavoy/B7160NG.jpg" }
     ]
   },
   {
@@ -1359,10 +1379,10 @@ export const INITIAL_PRODUCTS = [
     image: "/images/dush/B7169PB.jpg",
     description: "Stoykali dush krani. Suv yo'nalishini bevosita jo'mrakning o'zidan boshqarish imkoniyati mavjud. Mustahkam latun korpusi yuqori bosimga chidamli bo'lib, o'rnatishda mukammal qulaylik ta'minlaydi va ishonchli ishlaydi.",
     colors: [
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU 7169XROM", price: 118, oldPrice: 125, image: "/images/dushavoy/B7169XROM.jpg" },
-      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU 7169PB", price: 123, oldPrice: 130, image: "/images/dushavoy/B7169PB.jpg" },
-      { name: "Grafit", hex: "#4a4e54", code: "BOOU 7169NGG", price: 130, oldPrice: 145, image: "/images/dushavoy/B7169NGG.jpg" },
-      { name: "Tilla Mat", hex: "#d4af37", code: "BOOU 7169NG", price: 130, oldPrice: 145, image: "/images/dushavoy/B7169NG.jpg" }
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-7169", price: 118, oldPrice: 125, image: "/images/dushavoy/B7169XROM.jpg" },
+      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-7169PB", price: 123, oldPrice: 130, image: "/images/dushavoy/B7169PB.jpg" },
+      { name: "Grafit", hex: "#4a4e54", code: "BOOU-7169NGG", price: 130, oldPrice: 145, image: "/images/dushavoy/B7169NGG.jpg" },
+      { name: "Tilla Mat", hex: "#d4af37", code: "BOOU-7169NG", price: 130, oldPrice: 145, image: "/images/dushavoy/B7169NG.jpg" }
     ]
   },
   {
@@ -1378,10 +1398,10 @@ export const INITIAL_PRODUCTS = [
     image: "/images/dush/B7131PB.jpg",
     description: "Stoykali dush va vanna aralashtirgichi. Uzoq muddatli chidamli mexanizm bilan jihozlangan. Zamonaviy dizayni hammom interyeriga o'zgacha ko'rk bag'ishlab, foydalanishda qulaylik beradi.",
     colors: [
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU 7131XROM", price: 118, oldPrice: 125, image: "/images/dushavoy/B7131XROM.jpg" },
-      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU 7131PB", price: 123, oldPrice: 130, image: "/images/dushavoy/B7131PB.jpg" },
-      { name: "Grafit", hex: "#4a4e54", code: "BOOU 7131NGG", price: 130, oldPrice: 145, image: "/images/dushavoy/B7131NGG.jpg" },
-      { name: "Tilla Mat", hex: "#d4af37", code: "BOOU 7131NG", price: 130, oldPrice: 145, image: "/images/dushavoy/B7131NG.jpg" }
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-7131", price: 118, oldPrice: 125, image: "/images/dushavoy/B7131XROM.jpg" },
+      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-7131PB", price: 123, oldPrice: 130, image: "/images/dushavoy/B7131PB.jpg" },
+      { name: "Grafit", hex: "#4a4e54", code: "BOOU-7131NGG", price: 130, oldPrice: 145, image: "/images/dushavoy/B7131NGG.jpg" },
+      { name: "Tilla Mat", hex: "#d4af37", code: "BOOU-7131NG", price: 130, oldPrice: 145, image: "/images/dushavoy/B7131NG.jpg" }
     ]
   },
   {
@@ -1397,10 +1417,10 @@ export const INITIAL_PRODUCTS = [
     image: "/images/dush/B8113PB.jpg",
     description: "Stoykali turdagi sifatli dush krani. Silliq boshqaruv mexanizmi va ranglar tanloviga ega. Suv oqimini aniq tartibga solib, kundalik foydalanishni yanada qulaylashtiradi.",
     colors: [
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU 8113-3A XROM", price: 118, oldPrice: 125, image: "/images/dushavoy/B8113XROM.jpg" },
-      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU 8113-3A PB", price: 123, oldPrice: 130, image: "/images/dushavoy/B8113PB.jpg" },
-      { name: "Grafit", hex: "#4a4e54", code: "BOOU 8113-3A NGG", price: 130, oldPrice: 145, image: "/images/dushavoy/B8113NGG.jpg" },
-      { name: "Tilla Mat", hex: "#d4af37", code: "BOOU 8113-3A NG", price: 130, oldPrice: 145, image: "/images/dushavoy/B8113NG.jpg" }
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8113-3A", price: 118, oldPrice: 125, image: "/images/dushavoy/B8113XROM.jpg" },
+      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-8113-3A PB", price: 123, oldPrice: 130, image: "/images/dushavoy/B8113PB.jpg" },
+      { name: "Grafit", hex: "#4a4e54", code: "BOOU-8113-3A NGG", price: 130, oldPrice: 145, image: "/images/dushavoy/B8113NGG.jpg" },
+      { name: "Tilla Mat", hex: "#d4af37", code: "BOOU-8113-3A NG", price: 130, oldPrice: 145, image: "/images/dushavoy/B8113NG.jpg" }
     ]
   },
   {
@@ -1416,9 +1436,9 @@ export const INITIAL_PRODUCTS = [
     image: "/images/dush/B6061PB.jpg",
     description: "Devor ichiga yashirin o'rnatiladigan (i-box) dush smestiteli. Og'ir latun korpusli, minimalist dizayn. Hammom xonasida ortiqcha quvurlarsiz toza va hashamatli ko'rinish yaratib, uzoq xizmat qiladi.",
     colors: [
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU 6061XROM", price: 125, oldPrice: 135, image: "/images/dushavoy/B6061XROM.jpg" },
-      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU 6061PB", price: 130, oldPrice: 140, image: "/images/dushavoy/B6061PB.jpg" },
-      { name: "Grafit", hex: "#4a4e54", code: "BOOU 6061NGG", price: 150, oldPrice: 160, image: "/images/dushavoy/B6061NGG.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-6061", price: 125, oldPrice: 135, image: "/images/dushavoy/B6061XROM.jpg" },
+      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-6061PB", price: 130, oldPrice: 140, image: "/images/dushavoy/B6061PB.jpg" },
+      { name: "Grafit", hex: "#4a4e54", code: "BOOU-6061NGG", price: 150, oldPrice: 160, image: "/images/dushavoy/B6061NGG.jpg" },
     ]
   },
   {
@@ -1434,8 +1454,8 @@ export const INITIAL_PRODUCTS = [
     image: "/images/dush/B6072PB.jpg",
     description: "Devor ichiga yashirin o'rnatiladigan dush krani. Keramik perekluchatel orqali tropik dush va leykani oson boshqaradi. Uzoq muddatli va xavfsiz foydalanishni ta'minlab, hammomni zamonaviy qiladi.",
     colors: [
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU 6072XROM", price: 130, oldPrice: 140, image: "/images/dushavoy/B6072XROM.jpg" },
-      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU 6072PB", price: 135, oldPrice: 145, image: "/images/dushavoy/B6072PB.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-6072", price: 130, oldPrice: 140, image: "/images/dushavoy/B6072XROM.jpg" },
+      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-6072PB", price: 135, oldPrice: 145, image: "/images/dushavoy/B6072PB.jpg" },
     ]
   },
   {
@@ -1451,7 +1471,7 @@ export const INITIAL_PRODUCTS = [
     image: "/images/dush/B8315PB.jpg",
     description: "Devor ichiga yashirin o'rnatiladigan Platinum dush tizimi. i-box montaj qutisi va og'ir latun korpusga ega. Yuqori germetiklik va uzoq yillik benuqson xizmatni mukammal kafolatlaydi.",
     colors: [
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU Platinum 8315-57XROM", price: 195, oldPrice: 205, image: "/images/dushavoy/B8315PLAT-XROM.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU Platinum 8315-57", price: 195, oldPrice: 205, image: "/images/dushavoy/B8315PLAT-XROM.jpg" },
       { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU Platinum 8315-57PB", price: 200, oldPrice: 220, image: "/images/dushavoy/B8315PLAT-PB.jpg" },
       { name: "Grafit", hex: "#4a4e54", code: "BOOU Platinum 8315-57NGG", price: 215, oldPrice: 225, image: "/images/dushavoy/B8315PLAT-NGG.jpg" },
       { name: "Tilla Mat", hex: "#d4af37", code: "BOOU Platinum 8315-57NG", price: 215, oldPrice: 225, image: "/images/dushavoy/B8315PLAT-NG.jpg" }
@@ -1470,7 +1490,7 @@ export const INITIAL_PRODUCTS = [
     image: "/images/dush/B8116PB.jpg",
     description: "Devor ichiga yashirin o'rnatiladigan Platinum dush krani. Yuqori sifatli quyma latun va ishonchli boshqaruv mexanizmi. Hammomga dabdabali ko'rinish va mutlaq qulaylik olib kiradi.",
     colors: [
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU Platinum 8116-57XROM", price: 200, oldPrice: 215, image: "/images/dushavoy/B8116PLAT-XROM.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU Platinum 8116-57", price: 200, oldPrice: 215, image: "/images/dushavoy/B8116PLAT-XROM.jpg" },
       { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU Platinum 8116-57PB", price: 205, oldPrice: 225, image: "/images/dushavoy/B8116PLAT-PB.jpg" },
       { name: "Grafit", hex: "#4a4e54", code: "BOOU Platinum 8116-57NGG", price: 220, oldPrice: 230, image: "/images/dushavoy/B8116PLAT-NGG.jpg" },
       { name: "Tilla Mat", hex: "#d4af37", code: "BOOU Platinum 8116-57NG", price: 220, oldPrice: 230, image: "/images/dushavoy/B8116PLAT-NG.jpg" }
@@ -1491,7 +1511,7 @@ export const INITIAL_PRODUCTS = [
     image: "/images/sushka/2177540-NG-round.jpg",
     description: "Vannaxonangiz uchun klassik va silliq yechim. Ushbu model nafis DUMALOQ (silindrsimon) korpusli dizaynda ishlangan. Zanglamaydigan mustahkam metalldan tayyorlangan bo'lib, taymer, haroratni nazorat qilish, energiya tejamkorligi va tez isitish xususiyatlariga ega.",
     colors: [
-      { name: "Xrom", hex: "#d1d5db", code: "2177540-RD-XROM", price: 135, oldPrice: 150, image: "/images/sushka/2177540-XROM.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "2177540-RD", price: 135, oldPrice: 150, image: "/images/sushka/2177540-XROM.jpg" },
       { name: "Mat Qora", hex: "#1a1a1a", code: "2177540-RD-PB", price: 135, oldPrice: 150, image: "/images/sushka/2177540-PB.jpg" },
       { name: "Grafit", hex: "#4a4e54", code: "2177540-RD-NGG", price: 140, oldPrice: 155, image: "/images/sushka/2177540-NGG.jpg" },
       { name: "Tilla Mat", hex: "#d4af37", code: "2177540-RD-NG", price: 140, oldPrice: 155, image: "/images/sushka/2177540-NG.jpg" }
@@ -1500,7 +1520,7 @@ export const INITIAL_PRODUCTS = [
   {
     id: "elektron-sushilka-tortburchak",
     code: "2177545-SQ",
-    name: "BOOU Elektron Sushilkalari (To'rt burchak korpus)",
+    name: "BOOU Elektron Sushilkalari (Hi-Tech korpus)",
     category: "elektron-sushilka",
     categoryName: "Elektron Sushilka",
     price: 140,
@@ -1508,9 +1528,9 @@ export const INITIAL_PRODUCTS = [
     isPopular: false,
     isNew: true,
     image: "/images/sushka/2177545-NG-square.jpg",
-    description: "Vannaxonangiz uchun zamonaviy yechim. Ushbu model qat'iy chiziqlarga ega zamonaviy TO'RT BURCHAK korpusli dizaynda ishlangan. Zanglamaydigan mustahkam metalldan tayyorlangan bo'lib, taymer, haroratni nazorat qilish, energiya tejamkorligi va tez isitish xususiyatlariga ega.",
+    description: "Vannaxonangiz uchun zamonaviy yechim. Ushbu model qat'iy chiziqlarga ega zamonaviy Hi-Tech korpusli dizaynda ishlangan. Zanglamaydigan mustahkam metalldan tayyorlangan bo'lib, taymer, haroratni nazorat qilish, energiya tejamkorligi va tez isitish xususiyatlariga ega.",
     colors: [
-      { name: "Xrom", hex: "#d1d5db", code: "2177545-SQ-XROM", price: 140, oldPrice: 155, image: "/images/sushka/2177545-XROM.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "2177545-SQ", price: 140, oldPrice: 155, image: "/images/sushka/2177545-XROM.jpg" },
       { name: "Mat Qora", hex: "#1a1a1a", code: "2177545-SQ-PB", price: 140, oldPrice: 155, image: "/images/sushka/2177545-PB.jpg" },
       { name: "Grafit", hex: "#4a4e54", code: "2177545-SQ-NGG", price: 145, oldPrice: 160, image: "/images/sushka/2177545-NGG.jpg" },
       { name: "Tilla Mat", hex: "#d4af37", code: "2177545-SQ-NG", price: 145, oldPrice: 160, image: "/images/sushka/2177545-NG.jpg" }
@@ -1518,6 +1538,41 @@ export const INITIAL_PRODUCTS = [
   },
 
   // bide--------------------
+
+  {
+    id: "boou-8246-6",
+    code: "BOOU-8246-6",
+    name: "BOOU Bide Smestiteli",
+    category: "boou-bide",
+    categoryName: "Bide Smestiteli",
+    price: 30,
+    oldPrice: 35,
+    isPopular: true,
+    isNew: false,
+    image: "/images/bide/B8246.jpg",
+    description: "BOOU 8246-6  — klassik yarim doira shaklidagi ixcham va qulay bide krani. Harakatlanuvchi aeratori suv oqimini kerakli burchakka sachratmasdan yo'naltirish imkonini beradi. Qalin latun korpusi va silliq keramik kartriji kundalik gigiyenani oson hamda xavfsiz qiladi.",
+    colors: [
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8246-6", price: 30, oldPrice: 35, image: "/images/bide/B8246.jpg" },
+    ]
+  },
+
+  {
+    id: "boou-8280-6",
+    code: "BOOU-8280-6",
+    name: "BOOU Bide Smestiteli",
+    category: "boou-bide",
+    categoryName: "Bide Smestiteli",
+    price: 30,
+    oldPrice: 36,
+    isPopular: true,
+    isNew: false,
+    image: "/images/bide/B8280.jpg",
+    description: "BOOU 8280-6 — to'rtburchak va tekis qirrali zamonaviy bide smestiteli. Yengil yuruvchi boshqaruv dastasi suv harorati hamda bosimini bir harakatda aniq to'g'rilaydi. Ko'p qatlamli xrom qoplamasi o'chib ketmaydi va suv dog'larini qoldirmasdan uzoq vaqt yaltirab turadi.",
+    colors: [
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8280-6", price: 30, oldPrice: 36, image: "/images/bide/B8280.jpg" },
+    ]
+  },
+
   {
     id: "boou-8113-6",
     code: "BOOU-8113-6",
@@ -1531,7 +1586,7 @@ export const INITIAL_PRODUCTS = [
     image: "/images/bide/B8113XROM.jpg",
     description: "BOOU Platinum Bide Smestiteli — zamonaviy dizayn va kundalik qulaylik uyg'unligini o'zida mujassam etgan model. Nafis shakli va puxta ishlangan tashqi ko'rinishi sanuzelingizga premium uslub bag'ishlaydi. Ixcham dizayni boshqa santexnika jihozlari bilan uyg'unlashib, interyerda yaxlit ko'rinish yaratishga yordam beradi. BOOU Platinum — zamonaviylik, nafislik va qulaylikni qadrlaydiganlar uchun munosib tanlov.",
     colors: [
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8113-6XROM", price: 65, oldPrice: 70, image: "/images/bide/B8113XROM.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8113-6", price: 65, oldPrice: 70, image: "/images/bide/B8113XROM.jpg" },
       { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-8113-6PB", price: 68, oldPrice: 72, image: "/images/bide/B8113PB.jpg" },
       { name: "Grafit", hex: "#4a4e54", code: "BOOU-8113-6NGG", price: 70, oldPrice: 75, image: "/images/bide/B8113NGG.jpg" },
       { name: "Tilla Mat", hex: "#d4af37", code: "BOOU-8113-6NG", price: 70, oldPrice: 75, image: "/images/bide/B8113NG.jpg" }
@@ -1548,12 +1603,128 @@ export const INITIAL_PRODUCTS = [
     isPopular: false,
     isNew: true,
     image: "/images/bide/B8315XROM.jpg",
-    description: "BOOU Platinum bide smestiteli — zamonaviy dizayn, qulaylik va nafislikni o'zida mujassam etgan mahsulot. Chiroyli ko'rinishi va puxta ishlangan detallari sanuzelingiz interyeriga o'ziga xos uslub bag'ishlaydi. Qulay boshqaruv mexanizmi suv oqimini nazorat qilishni osonlashtiradi. Turli rangdagi variantlari zamonaviy bide va sanuzel jihozlari bilan uyg'unlashadi. BOOU Platinum — sanuzelingiz uchun zamonaviy va didli tanlov.",
+    description: "BOOU Platinum Bide Smestiteli — zamonaviy dizayn, qulaylik va nafislikni o'zida mujassam etgan mahsulot. Chiroyli ko'rinishi va puxta ishlangan detallari sanuzelingiz interyeriga o'ziga xos uslub bag'ishlaydi. Qulay boshqaruv mexanizmi suv oqimini nazorat qilishni osonlashtiradi. Turli rangdagi variantlari zamonaviy bide va sanuzel jihozlari bilan uyg'unlashadi. BOOU Platinum — sanuzelingiz uchun zamonaviy va didli tanlov.",
     colors: [
-      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8315-6XROM", price: 55, oldPrice: 60, image: "/images/bide/B8315XROM.jpg" },
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8315-6", price: 55, oldPrice: 60, image: "/images/bide/B8315XROM.jpg" },
       { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-8315-6PB", price: 56, oldPrice: 62, image: "/images/bide/B8315PB.jpg" },
       { name: "Grafit", hex: "#4a4e54", code: "BOOU-8315-6NGG", price: 60, oldPrice: 67, image: "/images/bide/B8315NGG.jpg" },
       { name: "Tilla Mat", hex: "#d4af37", code: "BOOU-8315-6NG", price: 60, oldPrice: 67, image: "/images/bide/B8315NG.jpg" }
     ]
+  },
+
+  // taxorat
+  {
+    id: "boou-8246-4",
+    code: "BOOU-8246-4",
+    name: "BOOU Taxorat Smestiteli",
+    category: "boou-taxorat",
+    categoryName: "Taxorat Smestiteli",
+    price: 35,
+    oldPrice: 40,
+    isPopular: true,
+    isNew: false,
+    image: "/images/taxorat/B8246XROM.jpg",
+    description: "BOOU 8246 — kundalik foydalanish uchun qulay va hamyonbop tahorat smestiteli. Bitta dasta orqali issiq va sovuq suv haroratini tez hamda qiyinchiliksiz to'g'rilash mumkin. Leykasi suvni atrofga sachratmasdan, bir maromda va tejamkor purkaydi. Ishonchli keramik mexanizmi suv tomchilab qolishining oldini oladi, pishiq qoplamasi esa zanglamasdan uzoq xizmat qiladi.",
+    colors: [
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8246-4", price: 30, oldPrice: 35, image: "/images/taxorat/B8246XROM.jpg" },
+      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-8246-4PB", price: 35, oldPrice: 40, image: "/images/taxorat/B8246PB.jpg" }
+    ]
+  },
+  {
+    id: "boou-8280-4",
+    code: "BOOU-8280-4",
+    name: "BOOU Taxorat Smestiteli",
+    category: "boou-taxorat",
+    categoryName: "Taxorat Smestiteli",
+    price: 38,
+    oldPrice: 45,
+    isPopular: true,
+    isNew: false,
+    image: "/images/taxorat/B8280XROM.jpg",
+    description: "BOOU 8280 — kundalik foydalanish uchun qulay, pishiq va ishonchli tahorat smestiteli. Yengil harakatlanuvchi dastasi orqali suv harorati hamda bosimini bir teginishda aniq to'g'rilash mumkin. Bosimli purkagich leykasi suvni atrofga sachratmasdan, mayin va bir tekis sepadi. Ichki keramik kartriji suv tomchilab qolishining oldini oladi, to'rt xil mustahkam rangi esa xiralashmasdan uzoq vaqt yangidek saqlanadi.",
+    colors: [
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8280-4", price: 30, oldPrice: 35, image: "/images/taxorat/B8280XROM.jpg" },
+      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-8280-4PB", price: 35, oldPrice: 40, image: "/images/taxorat/B8280PB.jpg" },
+      { name: "Grafit", hex: "#4a4e54", code: "BOOU-8280-4NGG", price: 38, oldPrice: 45, image: "/images/taxorat/B8280NGG.jpg" },
+      { name: "Tilla Mat", hex: "#d4af37", code: "BOOU-8280-4NG", price: 38, oldPrice: 45, image: "/images/taxorat/B8280NG.jpg" }
+    ]
+  },
+  {
+    id: "boou-8215-4",
+    code: "BOOU-8215-4",
+    name: "BOOU Taxorat Smestiteli",
+    category: "boou-taxorat",
+    categoryName: "Taxorat Smestiteli",
+    price: 35,
+    oldPrice: 40,
+    isPopular: true,
+    isNew: false,
+    image: "/images/taxorat/B8215.jpg",
+    description: "Soft Hi-Tech uslubidagi nafis va zamonaviy tahorat smestiteli. Tekis yuzalari va burchaklarining mayin yumshatilgan shakli sanuzelga zamonaviy, ammo osoyishta ko'rinish beradi. Korpusi qalin quyma latundan ishlangan bo'lib, o'tkir qirralarsiz ergonomik dastasi orqali suv harorati va bosimini bir harakatda aniq sozlaydi. Yuqori bosimli purkagich leykasi suvni atrofga sachratmasdan, mayin va bir tekis sepadi. Ishonchli ichki keramik kartriji suv tomchilab qolishining oldini olib, yillar davomida benuqson xizmat qiladi.",
+    colors: [
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8215-4", price: 30, oldPrice: 35, image: "/images/taxorat/B8215.jpg" },
+    ]
+  },
+
+  {
+    id: "boou-8113-50",
+    code: "BOOU-8113-50",
+    name: "BOOU Platinum Taxorat Smestiteli",
+    category: "boou-taxorat",
+    categoryName: "Taxorat Smestiteli",
+    price: 62,
+    oldPrice: 70,
+    isPopular: false,
+    isNew: true,
+    image: "/images/taxorat/B8113XROM.jpg",
+    description: "BOOU Platinum 8113-50 — boshqarish juda yengil va qulay bo'lgan premium tahorat smestiteli. Dastasi suv haroratini bir harakatda aniq sozlaydi, leykasi esa suvni sachratmasdan, mayin va bir maromda purkaydi. Mustahkam keramik mexanizmi suv tomchilashiga yo'l qo'ymaydi, chidamli qoplamasi esa dog' tutmaydi va osongina tozalanadi. Sanuzelingizda ixcham turadi va yillar davomida yangidek xizmat qiladi.",
+    colors: [
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8113-50", price: 55, oldPrice: 60, image: "/images/taxorat/B8113XROM.jpg" },
+      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-8113-50PB", price: 60, oldPrice: 66, image: "/images/taxorat/B8113PB.jpg" },
+      { name: "Grafit", hex: "#4a4e54", code: "BOOU-8113-50NGG", price: 68, oldPrice: 75, image: "/images/taxorat/B8113NGG.jpg" },
+      { name: "Tilla Mat", hex: "#d4af37", code: "BOOU-8113-50NG", price: 70, oldPrice: 77, image: "/images/taxorat/B8113NG.jpg" }
+    ]
+  },
+
+  {
+    id: "boou-8116-50",
+    code: "BOOU-8116-50",
+    name: "BOOU Platinum Taxorat Smestiteli",
+    category: "boou-taxorat",
+    categoryName: "Taxorat Smestiteli",
+    price: 62,
+    oldPrice: 70,
+    isPopular: false,
+    isNew: true,
+    image: "/images/taxorat/B8116XROM.jpg",
+    description: "BOOU Platinum 8116-50 — sanuzelga zamonaviy va qimmat ko'rinish beruvchi premium tahorat smestiteli. Qo'lga juda qulay o'tiradi, korpusi pishiq va ixcham. Ichki keramikasi suv bosimini bir tekis ushlaydi, shuning uchun suv kutilmaganda juda qaynab yoki sovib ketmaydi. Har tomonlama puxta ishlangan ushbu model uzoq yillar davomida hech qanday muammosiz xizmat qiladi.",
+    colors: [
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8116-50", price: 55, oldPrice: 60, image: "/images/taxorat/B8116XROM.jpg" },
+      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-8116-50PB", price: 60, oldPrice: 66, image: "/images/taxorat/B8116PB.jpg" },
+      { name: "Grafit", hex: "#4a4e54", code: "BOOU-8116-50NGG", price: 68, oldPrice: 75, image: "/images/taxorat/B8116NGG.jpg" },
+      { name: "Tilla Mat", hex: "#d4af37", code: "BOOU-8116-50NG", price: 70, oldPrice: 77, image: "/images/taxorat/B8116NG.jpg", inStock: false }
+    ]
+  },
+
+  {
+    id: "boou-8315-50",
+    code: "BOOU-8315-50",
+    name: "BOOU Platinum Taxorat Smestiteli",
+    category: "boou-taxorat",
+    categoryName: "Taxorat Smestiteli",
+    price: 62,
+    oldPrice: 70,
+    isPopular: false,
+    isNew: true,
+    image: "/images/taxorat/B8315XROM.jpg",
+    description: "BOOU Platinum BOOU-8315-50 — zamonaviy Hi-Tech uslubida ishlangan premium tahorat smestiteli. Aniq to'g'ri burchakli qat’iy chiziqlari va minimalistik ko'rinishi bilan oddiy modellardan yaqqol ajralib turadi, sanuzelga qimmatbaho hamda zamonaviy tus beradi.   Ichki keramik mexanizmi va yengil harakatlanuvchi dastasi suv haroratini bir zumda aniq to'g'rilash imkonini beradi. Yuqori bosimli purkagichi esa suvni ortiqcha sachratmasdan, yumshoq va bir maromda sepadi. ",
+    colors: [
+      { name: "Xrom", hex: "#d1d5db", code: "BOOU-8315-50", price: 55, oldPrice: 60, image: "/images/taxorat/B8315XROM.jpg" },
+      { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-8315-50PB", price: 60, oldPrice: 66, image: "/images/taxorat/B8315PB.jpg" },
+      { name: "Grafit", hex: "#4a4e54", code: "BOOU-8315-50NGG", price: 68, oldPrice: 75, image: "/images/taxorat/B8315NGG.jpg" },
+      { name: "Tilla Mat", hex: "#d4af37", code: "BOOU-8315-50NG", price: 70, oldPrice: 77, image: "/images/taxorat/B8315NG.jpg" }
+    ]
   }
+
 ];
+
