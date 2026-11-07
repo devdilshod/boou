@@ -770,6 +770,7 @@ export const CATEGORIES = [
   { id: "elektron-sushilka", name: "BOOU Elektron Sushilkalari", img: "/images/sushka/2177545-NG.jpg" },
   { id: "boou-bide", name: "BOOU Bide Smestiteli", img: "/images/bide/B8315NGG.jpg" },
   { id: "boou-taxorat", name: "BOOU Taxorat Smestiteli", img: "/images/taxorat/B8315NG.jpg" },
+  { id: "nabor", name: "Ronas Nabori", img: "/images/nabor/B2300G.jpg" },
 ];
 
 export const INITIAL_PRODUCTS = [
@@ -1324,7 +1325,7 @@ export const INITIAL_PRODUCTS = [
     isPopular: true,
     isNew: true,
     image: "/images/dushavoy/B7108PB.jpg",
-    description: "Stoykali dush kabinasi krani. Suv bosimini barqaror taqsimlovchi ishonchli model bo'lib, o'rnatishda barcha kerakli qismlar to'plam bilan birga beriladi va uzoq xizmat qiladi.",
+    description: "Klassik dumaloq korpusli ixcham dush stoykasi. Bo'yga qarab balandligi oson sozlanuvchi teleskopik truba, keng mayin tropik dush hamda yengil qo'l leykasi bilan jihozlangan. Suv bosimi past bo'lganda ham oqimni bir maromda ushlab turadi va kundalik cho'milish uchun qulay hamda ishonchli yechim hisoblanadi.",
     colors: [
       { name: "Xrom", hex: "#d1d5db", code: "BOOU-7108", price: 78, oldPrice: 85, image: "/images/dushavoy/B7108XROM.jpg" },
       { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-7108PB", price: 80, oldPrice: 90, image: "/images/dushavoy/B7108PB.jpg" },
@@ -1358,7 +1359,7 @@ export const INITIAL_PRODUCTS = [
     isPopular: true,
     isNew: true,
     image: "/images/dush/B7160PB.jpg",
-    description: "Stoykali universal dush smestiteli. Mustahkam quyma latun va 4 xil rang variantiga ega. Dush qabul qilish jarayonini o'ta yoqimli, qulay va xavfsiz holatga keltiradi.",
+    description: "Universal dizaynga ega ommabop dush stoykasi. Zamonaviy 4 xil rang (Xrom, Mat Qora, Grafit va Tilla Mat) variantlarida mavjud bo'lib, istalgan interyer dizayniga osongina moslashadi. Keng formatli yomg'ir effekti beruvchi tropik leykasi va erkin egiluvchan shlangi cho'milishni chinakam Spa muolajasiga tenglashtiradi.",
     colors: [
       { name: "Xrom", hex: "#d1d5db", code: "BOOU-7160", price: 80, oldPrice: 85, image: "/images/dushavoy/B7160XROM.jpg" },
       { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-7160PB", price: 85, oldPrice: 90, image: "/images/dushavoy/B7160PB.jpg" },
@@ -1377,7 +1378,7 @@ export const INITIAL_PRODUCTS = [
     isPopular: true,
     isNew: true,
     image: "/images/dush/B7169PB.jpg",
-    description: "Stoykali dush krani. Suv yo'nalishini bevosita jo'mrakning o'zidan boshqarish imkoniyati mavjud. Mustahkam latun korpusi yuqori bosimga chidamli bo'lib, o'rnatishda mukammal qulaylik ta'minlaydi va ishonchli ishlaydi.",
+    description: "Aqlli va innovatsion yechim — 90° ga buriluvchi jo'mrakli dush tizimi! Pastki jo'mrakni yonga burishingiz bilanoq suv avtomatik ravishda dush leykasiga o'tadi (ortiqcha knopka bosish yoki richag tortish shart emas). Vanna to'ldirish va dush qabul qilishni birlashtirgan eng qulay hamda zamonaviy modellarimizdan biri.",
     colors: [
       { name: "Xrom", hex: "#d1d5db", code: "BOOU-7169", price: 118, oldPrice: 125, image: "/images/dushavoy/B7169XROM.jpg" },
       { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-7169PB", price: 123, oldPrice: 130, image: "/images/dushavoy/B7169PB.jpg" },
@@ -1396,7 +1397,7 @@ export const INITIAL_PRODUCTS = [
     isPopular: true,
     isNew: true,
     image: "/images/dush/B7131PB.jpg",
-    description: "Stoykali dush va vanna aralashtirgichi. Uzoq muddatli chidamli mexanizm bilan jihozlangan. Zamonaviy dizayni hammom interyeriga o'zgacha ko'rk bag'ishlab, foydalanishda qulaylik beradi.",
+    description: "Vanna va dush kabinalari uchun mo'ljallangan premium darajadagi universal aralashtirgich. Bir nechta ish rejimiga ega keng qo'l leykasi suv bosimi past bo'lganda ham oqimni kuchaytirib beradi. Yuqori sifatli qoplamasi namlik va dog'larga chidamli bo'lib, ilk ko'rinishini yillar davomida saqlab qoladi.",
     colors: [
       { name: "Xrom", hex: "#d1d5db", code: "BOOU-7131", price: 118, oldPrice: 125, image: "/images/dushavoy/B7131XROM.jpg" },
       { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-7131PB", price: 123, oldPrice: 130, image: "/images/dushavoy/B7131PB.jpg" },
@@ -1415,7 +1416,7 @@ export const INITIAL_PRODUCTS = [
     isPopular: true,
     isNew: true,
     image: "/images/dush/B8113PB.jpg",
-    description: "Stoykali turdagi sifatli dush krani. Silliq boshqaruv mexanizmi va ranglar tanloviga ega. Suv oqimini aniq tartibga solib, kundalik foydalanishni yanada qulaylashtiradi.",
+    description: "BOOU Platinum elita seriyasiga mansub qat'iy va nafis chiziqli dush tizimi. Vannaxonangizda boshqa 8113 seriyali kranlar bilan uyg'unlashib, mukammal yaxlit dizayn hosil qiladi. Yuqori bosimli suv oqimini mukammal ushlab turuvchi ichki mexanizmi va dabdabali ko'rinishi bilan sanuzelingizga o'zgacha qimmatbaho tus beradi.",
     colors: [
       { name: "Xrom", hex: "#d1d5db", code: "BOOU-8113-3A", price: 118, oldPrice: 125, image: "/images/dushavoy/B8113XROM.jpg" },
       { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-8113-3A PB", price: 123, oldPrice: 130, image: "/images/dushavoy/B8113PB.jpg" },
@@ -1723,6 +1724,60 @@ export const INITIAL_PRODUCTS = [
       { name: "Mat Qora", hex: "#1a1a1a", code: "BOOU-8315-50PB", price: 60, oldPrice: 66, image: "/images/taxorat/B8315PB.jpg" },
       { name: "Grafit", hex: "#4a4e54", code: "BOOU-8315-50NGG", price: 68, oldPrice: 75, image: "/images/taxorat/B8315NGG.jpg" },
       { name: "Tilla Mat", hex: "#d4af37", code: "BOOU-8315-50NG", price: 70, oldPrice: 77, image: "/images/taxorat/B8315NG.jpg" }
+    ]
+  },
+  // naborlar
+
+  {
+    id: "ronas-2300",
+    code: "2300 Nabor",
+    name: "Ronas 2300 Nabori",
+    category: "nabor",
+    categoryName: "Hammom Nabori",
+    price: 62,
+    oldPrice: 70,
+    isPopular: false,
+    isNew: true,
+    image: "/images/nabor/R2300B.jpg",
+    description: "Arzon, 1-2 yilda zanglab sinadigan to‘plamlarni unuting. Ronas 2300 to‘liq 100% sof latun (jez) metallidan quyilgan bo‘lib, suv va namlikdan aslo chirimaydi hamda umrbod xizmat qiladi. 7 ta eng zarur aksessuar bir xil uslubda jamlangan bo‘lib, oyna kabi silliq yuzasi suv dog‘larini tutmaydi va tozalashni osonlashtiradi. Hammomingizda mehmonxona darajasidagi tartib va haqiqiy sifatni yaratuvchi ishonchli tanlov.",
+    colors: [
+      { name: "Xrom", hex: "#d1d5db", code: "2300-Nabor-CH", price: 55, oldPrice: 60, image: "/images/nabor/R2300CH.jpg" },
+      { name: "Mat Qora", hex: "#1a1a1a", code: "2300-Nabor-B", price: 60, oldPrice: 66, image: "/images/nabor/R2300B.jpg" },
+      { name: "Grafit", hex: "#4a4e54", code: "2300-Nabor-G", price: 68, oldPrice: 75, image: "/images/nabor/R2300G.jpg" },
+      { name: "Tilla Mat", hex: "#d4af37", code: "2300-Nabor-BG", price: 70, oldPrice: 77, image: "/images/nabor/R2300BG.jpg" },
+      { name: "Bronza", hex: "#57422F", code: "2300-Nabor-BR", price: 70, oldPrice: 77, image: "/images/nabor/R2300BR.jpg" }
+    ]
+  },
+  {
+    id: "ronas-2200",
+    code: "2200 Nabor",
+    name: "Ronas 2200 Nabori",
+    category: "nabor",
+    categoryName: "Hammom Nabori",
+    price: 62,
+    oldPrice: 70,
+    isPopular: false,
+    isNew: true,
+    image: "/images/nabor/R2200.jpg",
+    description: "Hammom uchun shunchaki chiroyli emas, haqiqiy latun sifatini tanlang. Ushbu to‘plam namlikdan qo‘rqmaydigan sof latun korpusi tufayli zanglash va sinish nimaligini bilmaydi. 7 ta eng zarur aksessuar bir xil uslubda jamlangan bo‘lib, oyna kabi silliq xrom yuzasi suv dog‘larini tutmaydi va tozalashni osonlashtiradi. Bu sarflangan har bir so‘mga arziydigan to‘g‘ri va ishonchli investitsiya.",
+    colors: [
+      { name: "Xrom", hex: "#d1d5db", code: "2200-Nabor-CH", price: 55, oldPrice: 60, image: "/images/nabor/R2200.jpg" },
+    ]
+  },
+  {
+    id: "ronas-2800",
+    code: "2800 Nabor",
+    name: "Ronas 2800 Nabori",
+    category: "nabor",
+    categoryName: "Hammom Nabori",
+    price: 62,
+    oldPrice: 70,
+    isPopular: false,
+    isNew: true,
+    image: "/images/nabor/R2800.jpg",
+    description: "Hammomingiz premium ko‘rinishga loyiq! Ronas 2800 ning asosiy siri — uning og‘ir, korroziyaga uchramaydigan yuqori toifadagi latun asosida. Bozor to‘la yengil silumin va tunukalardan farqli o‘laroq, bu to‘plam mustahkam qotadi, xrom qoplamasi yillar o‘tsa ham xiralashmaydi. Barcha sochiqlar, gigiyena vositalari va kosmetikangiz uchun nafis tartib hamda bir umrlik kafolatlangan sifat.",
+    colors: [
+      { name: "Xrom", hex: "#d1d5db", code: "2800-Nabor-CH", price: 55, oldPrice: 60, image: "/images/nabor/R2800.jpg" },
     ]
   }
 
