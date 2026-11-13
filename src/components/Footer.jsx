@@ -42,7 +42,10 @@ export const Footer = ({ onSelectCategory }) => {
               <li><a href="#products" onClick={() => onSelectCategory('oshxona-smestitel')} className="hover:text-white transition">Oshxona smestitellari</a></li>
               <li><a href="#products" onClick={() => onSelectCategory('smestitel')} className="hover:text-white transition">Vanna smestitellari</a></li>
               <li><a href="#products" onClick={() => onSelectCategory('dush-smestitel')} className="hover:text-white transition">Dush smestitellari</a></li>
-              <li><a href="#products" onClick={() => onSelectCategory('unitaz')} className="hover:text-white transition">Unitazlar</a></li>
+              <li><a href="#products" onClick={() => onSelectCategory('elektron-sushilka')} className="hover:text-white transition">Elektron-sushilka</a></li>
+              <li><a href="#products" onClick={() => onSelectCategory('boou-bide')} className="hover:text-white transition">BOOU Bide Smestitellari</a></li>
+              <li><a href="#products" onClick={() => onSelectCategory('boou-taxorat')} className="hover:text-white transition">BOOU Taxorat Smestitellari</a></li>
+              <li><a href="#products" onClick={() => onSelectCategory('nabor')} className="hover:text-white transition">Ronas naborlar</a></li>
             </ul>
           </div>
 

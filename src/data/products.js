@@ -770,7 +770,7 @@ export const CATEGORIES = [
   { id: "elektron-sushilka", name: "BOOU Elektron Sushilkalari", img: "/images/sushka/2177545-NG.jpg" },
   { id: "boou-bide", name: "BOOU Bide Smestiteli", img: "/images/bide/B8315NGG.jpg" },
   { id: "boou-taxorat", name: "BOOU Taxorat Smestiteli", img: "/images/taxorat/B8315NG.jpg" },
-  { id: "nabor", name: "Ronas Nabori", img: "/images/nabor/B2300G.jpg" },
+  { id: "nabor", name: "Ronas Nabori", img: "/images/nabor/R2300G.jpg" },
 ];
 
 export const INITIAL_PRODUCTS = [

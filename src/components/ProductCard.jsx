@@ -1,10 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export const ProductCard = ({ product, onAddToCart, onToggleLike, isLiked, onOpenModal }) => {
-  const [selectedColor, setSelectedColor] = useState(
-    product.colors && product.colors.length > 0 ? product.colors[0] : null
+  const [selectedColorCode, setSelectedColorCode] = useState(
+    product.colors && product.colors.length > 0 ? product.colors[0].code : null
   );
 
+  useEffect(() => {
+    if (product.colors && product.colors.length > 0) {
+      const exists = product.colors.some((c) => c.code === selectedColorCode);
+      if (!exists) {
+        setSelectedColorCode(product.colors[0].code);
+      }
+    } else {
+      setSelectedColorCode(null);
+    }
+  }, [product, selectedColorCode]);
+
+  const selectedColor =
+    product.colors && product.colors.length > 0
+      ? product.colors.find((c) => c.code === selectedColorCode) || product.colors[0]
+      : null;
+
+  const isOutOfStock = selectedColor?.inStock === false || product.inStock === false;
   const displayImage = selectedColor ? selectedColor.image : product.image;
   const displayPrice = selectedColor ? selectedColor.price : product.price;
   const displayOldPrice = selectedColor && selectedColor.oldPrice ? selectedColor.oldPrice : product.oldPrice;
@@ -18,7 +35,15 @@ export const ProductCard = ({ product, onAddToCart, onToggleLike, isLiked, onOpe
           <img
             src={displayImage}
             alt={product.name}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ${isOutOfStock ? 'opacity-50 grayscale' : ''}`} />
+
+          {isOutOfStock && (
+            <div className="absolute inset-0 flex items-center justify-center bg-black/25">
+              <span className="bg-red-600 text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-lg shadow">
+                Tugagan
+              </span>
+            </div>
+          )}
 
           <button type="button" onClick={(e) => { e.stopPropagation(); onToggleLike(product.id); }} className="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-white/90 backdrop-blur-xs text-boou-700 hover:text-red-500 flex items-center justify-center shadow-xs transition z-10" title="Sevimlilarga qo'shish">
             <i className={`${isLiked ? 'fas fa-heart text-red-500' : 'far fa-heart'} text-sm`}></i>
@@ -45,13 +70,13 @@ export const ProductCard = ({ product, onAddToCart, onToggleLike, isLiked, onOpe
           <div className="pt-2 pb-1 border-t border-boou-100 flex items-center justify-between text-[11px]">
             <span className="text-boou-500 font-medium">
               Rang:
-              <span className="font-bold text-boou-800">
+              <span className="font-bold text-boou-800 ml-1">
                 {selectedColor?.name}
               </span>
             </span>
             <div className="flex items-center gap-1.5">
               {product.colors.map(c => (
-                <button key={c.code} type="button" onClick={(e) => { e.stopPropagation(); setSelectedColor(c); }} className={`w-4 h-4 rounded-full border border-boou-300 shadow-xs transition-transform ${selectedColor?.code === c.code ? 'ring-2 ring-boou-600 scale-110' : 'hover:scale-105'}`} style={{ backgroundColor: c.hex }} title={`${c.name} (${c.code})`} />
+                <button key={c.code} type="button" onClick={(e) => { e.stopPropagation(); setSelectedColorCode(c.code); }} className={`w-4 h-4 rounded-full border border-boou-300 shadow-xs transition-transform ${selectedColor?.code === c.code ? 'ring-2 ring-boou-600 scale-110' : 'hover:scale-105'} ${c.inStock === false ? 'opacity-40' : ''}`} style={{ backgroundColor: c.hex }} title={`${c.name} (${c.code})`} />
               ))}
             </div>
           </div>
@@ -75,13 +100,17 @@ export const ProductCard = ({ product, onAddToCart, onToggleLike, isLiked, onOpe
             <i className="fas fa-eye"></i>
           </button>
           <button type="button"
+            disabled={isOutOfStock}
             onClick={() => onAddToCart(product, selectedColor)}
-            className="px-3 py-2 rounded-xl bg-boou-600 hover:bg-boou-700 text-white text-xs font-bold shadow-xs transition flex items-center gap-1.5">
+            className={`px-3 py-2 rounded-xl text-xs font-bold shadow-xs transition flex items-center gap-1.5 ${isOutOfStock
+              ? 'bg-boou-200 text-boou-400 cursor-not-allowed'
+              : 'bg-boou-600 hover:bg-boou-700 text-white'
+            }`}>
             <i className="fas fa-cart-plus"></i>
-            <span className="hidden sm:inline">Qo'shish</span>
+            <span className="hidden sm:inline">{isOutOfStock ? "Yo'q" : "Qo'shish"}</span>
           </button>
         </div>
       </div>
-    </div >
+    </div>
   );
 };
