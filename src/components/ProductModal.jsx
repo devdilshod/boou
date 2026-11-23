@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useLanguage } from "../context/LanguageContext";
 
 export const ProductModal = ({ product, initialColor, onClose, onAddToCart, onBuyNow }) => {
   if (!product) return null;
+
+  const { t, translateColor, translateCategory, translateProductName, translateProductDesc } = useLanguage();
 
   const [selectedColor, setSelectedColor] = useState(
     initialColor || (product.colors && product.colors.length > 0 ? product.colors[0] : null)
@@ -20,7 +23,10 @@ export const ProductModal = ({ product, initialColor, onClose, onAddToCart, onBu
   const displayImage = selectedColor?.image || product.image;
   const displayPrice = selectedColor?.price || product.price;
   const displayOldPrice = selectedColor?.oldPrice || product.oldPrice;
-  const colorName = selectedColor?.name || "Standart";
+  const colorName = translateColor(selectedColor?.name || "Standart");
+  const localizedName = translateProductName(product);
+  const localizedCategory = translateCategory(product.category, product.categoryName);
+  const localizedDesc = translateProductDesc(product) || t('product.defaultDesc');
 
   const handleAdd = () => {
     if (isOutOfStock) return;
@@ -51,7 +57,7 @@ export const ProductModal = ({ product, initialColor, onClose, onAddToCart, onBu
       >
         <div className="p-4 border-b border-boou-200 flex items-center justify-between bg-boou-50">
           <span className="text-xs font-bold text-boou-600 uppercase tracking-wider flex items-center gap-1.5">
-            <i className="fas fa-info-circle"></i> BOOU Mahsulot Tafsilotlari
+            <i className="fas fa-info-circle"></i> {t('product.detailsHeader')}
           </span>
           <button
             type="button"
@@ -68,21 +74,21 @@ export const ProductModal = ({ product, initialColor, onClose, onAddToCart, onBu
             <div className="md:col-span-6 space-y-3">
               <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-boou-50 border border-boou-200 shadow-inner group">
                 <div className="absolute top-4 left-4 z-10 pointer-events-none">
-                  <span className="text-3xl font-black text-white/90 drop-shadow-md tracking-wider uppercase">
+                  <span className="text-2xl sm:text-3xl font-black text-white/90 drop-shadow-md tracking-wider uppercase">
                     {colorName}
                   </span>
                 </div>
 
                 <img
                   src={displayImage}
-                  alt={product.name}
+                  alt={localizedName}
                   className={`w-full h-full object-cover transition duration-300 ${isOutOfStock ? 'opacity-50 grayscale' : ''}`}
                 />
 
                 {isOutOfStock && (
                   <div className="absolute inset-0 flex items-center justify-center bg-black/30 backdrop-blur-[2px]">
                     <span className="bg-red-600 text-white font-extrabold px-4 py-2 rounded-xl text-sm uppercase tracking-widest shadow-lg border-2 border-white transform -rotate-6">
-                      Vaqtincha tugagan
+                      {t('product.outOfStockModal')}
                     </span>
                   </div>
                 )}
@@ -105,11 +111,11 @@ export const ProductModal = ({ product, initialColor, onClose, onAddToCart, onBu
                       >
                         <img
                           src={c.image}
-                          alt={c.name}
+                          alt={translateColor(c.name)}
                           className="w-full h-full object-cover"
                         />
                         <span className="absolute bottom-0 inset-x-0 bg-black/60 text-[9px] font-bold text-white py-0.5 text-center uppercase tracking-tighter truncate px-1">
-                          {c.name} {isColorOut ? '(Yo\'q)' : ''}
+                          {translateColor(c.name)} {isColorOut ? `(${t('product.noShort')})` : ''}
                         </span>
                       </button>
                     );
@@ -122,26 +128,26 @@ export const ProductModal = ({ product, initialColor, onClose, onAddToCart, onBu
 
               <div>
                 <div className="flex flex-wrap items-center gap-2 text-[11px] text-boou-500 font-semibold mb-1">
-                  <span>{product.categoryName || "Oshxona smestitellari"}</span>
+                  <span>{localizedCategory}</span>
                   <span>•</span>
                   <span className="font-mono bg-boou-100 text-boou-700 px-1.5 py-0.5 rounded">
-                    Kod: {selectedColor?.code || product.code || "BOOU-8093"}
+                    {t('product.code')} {selectedColor?.code || product.code || "BOOU-8093"}
                   </span>
                   <span>•</span>
 
                   {isOutOfStock ? (
                     <span className="text-red-600 font-bold flex items-center gap-1 bg-red-50 px-2 py-0.5 rounded border border-red-200">
-                      <i className="fas fa-times-circle"></i> Omborda mavjud emas
+                      <i className="fas fa-times-circle"></i> {t('product.notInStock')}
                     </span>
                   ) : (
                     <span className="text-emerald-600 font-bold flex items-center gap-1 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-                      <i className="fas fa-check-circle"></i> Omborda mavjud
+                      <i className="fas fa-check-circle"></i> {t('product.inStock')}
                     </span>
                   )}
                 </div>
 
                 <h2 className="text-xl md:text-2xl font-extrabold text-boou-950 leading-snug">
-                  {product.name}
+                  {localizedName}
                 </h2>
               </div>
 
@@ -153,19 +159,18 @@ export const ProductModal = ({ product, initialColor, onClose, onAddToCart, onBu
                   )}
                 </div>
                 <span className="text-[11px] text-brass-700 font-bold bg-brass-100 border border-brass-200 px-2.5 py-1 rounded-md uppercase tracking-wider">
-                  5 YIL KAFOLAT
+                  {t('product.warrantyBadge')}
                 </span>
               </div>
 
               <p className="text-boou-600 leading-relaxed text-xs">
-                {product.description ||
-                  "BOOU firmasining original korobkasidagi mashhur L-simon oshxona smestiteli. 100% zanglamaydigan latun korpus, 360° erkin aylanuvchi forma, suv sachratmaydigan tejamkor aerator. 4 xil premial rangda ishlab chiqariladi."}
+                {localizedDesc}
               </p>
 
               {product.colors && product.colors.length > 0 && (
                 <div className="space-y-2 pt-1">
                   <label className="block text-xs font-bold text-boou-800">
-                    Rangni tanlang: <span className="text-boou-600">{colorName}</span>
+                    {t('product.chooseColor')} <span className="text-boou-600">{colorName}</span>
                   </label>
                   <div className="flex flex-wrap gap-2">
                     {product.colors.map((c) => {
@@ -185,9 +190,9 @@ export const ProductModal = ({ product, initialColor, onClose, onAddToCart, onBu
                             className="w-3.5 h-3.5 rounded-full border border-boou-300 shadow-xs shrink-0"
                             style={{ backgroundColor: c.hex }}
                           ></span>
-                          <span>{c.name}</span>
+                          <span>{translateColor(c.name)}</span>
                           <span className="text-[10px] text-boou-500 font-normal">
-                            (${c.price}) {isColorOut ? '• Yo\'q' : ''}
+                            (${c.price}) {isColorOut ? `• ${t('product.noShort')}` : ''}
                           </span>
                         </button>
                       );
@@ -197,7 +202,7 @@ export const ProductModal = ({ product, initialColor, onClose, onAddToCart, onBu
               )}
 
               <div className="pt-2 flex items-center gap-3">
-                <label className="font-bold text-boou-800">Miqdor:</label>
+                <label className="font-bold text-boou-800">{t('product.quantity')}</label>
                 <div className="flex items-center border border-boou-200 rounded-xl bg-white overflow-hidden text-sm shadow-xs">
                   <button
                     type="button"
@@ -230,7 +235,7 @@ export const ProductModal = ({ product, initialColor, onClose, onAddToCart, onBu
                     }`}
                 >
                   <i className="fas fa-cart-plus"></i>
-                  <span>{isOutOfStock ? 'Sotuvda yo\'q' : 'Savatchaga'}</span>
+                  <span>{isOutOfStock ? t('product.unavailableBtn') : t('product.addToCart')}</span>
                 </button>
                 <button
                   type="button"
@@ -241,7 +246,7 @@ export const ProductModal = ({ product, initialColor, onClose, onAddToCart, onBu
                     : 'bg-boou-900 hover:bg-black text-white'
                     }`}
                 >
-                  <span>{isOutOfStock ? 'Sotuvda yo\'q' : 'Hozir sotib olish'}</span>
+                  <span>{isOutOfStock ? t('product.unavailableBtn') : t('product.buyNow')}</span>
                 </button>
               </div>
 

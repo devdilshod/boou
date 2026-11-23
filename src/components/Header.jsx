@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import LanguageSwitcher from './LanguageSwitcher';
+import { useLanguage } from '../context/LanguageContext';
 
 export const Header = ({ cartCount, wishlistCount, onOpenCart, onOpenWishlist, onOpenSearch, currentPage, onNavigateHome, onOpenAdmin }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   const handleNavClick = (e, id) => {
     e.preventDefault();
@@ -25,32 +28,25 @@ export const Header = ({ cartCount, wishlistCount, onOpenCart, onOpenWishlist, o
           <div>
             <div className="flex items-center gap-1.5">
               <span className="font-extrabold text-2xl tracking-tight text-boou-900 group-hover:text-boou-700 transition">BOOU</span>
-              <span className="text-[10px] text-center uppercase font-bold tracking-widest bg-boou-100 text-boou-700 p-0.5 me-2 rounded border border-boou-200">2 / 94 do'kon</span>
+              <span className="hidden sm:inline-block text-[10px] text-center uppercase font-bold tracking-widest bg-boou-100 text-boou-700 px-1.5 py-0.5 rounded border border-boou-200">{t('header.shopBadge')}</span>
             </div>
-            <p className="text-[11px] font-medium text-boou-500 tracking-tight leading-none mt-0.5">Sanuzel & Santexnika Showroom</p>
+            <p className="hidden sm:block text-[11px] font-medium text-boou-500 tracking-tight leading-none mt-0.5">{t('header.tagline')}</p>
           </div>
         </a>
 
         <nav className="hidden lg:flex items-center space-x-1 font-medium text-sm text-boou-800">
-          <a href="#hero" onClick={(e) => handleNavClick(e, 'hero')} className="px-3.5 py-2 rounded-xl hover:text-boou-600 hover:bg-boou-100/70 transition font-semibold">Bosh sahifa</a>
-          <a href="#products" onClick={(e) => handleNavClick(e, 'products')} className="px-3.5 py-2 rounded-xl hover:text-boou-600 hover:bg-boou-100/70 transition">Barcha mahsulotlar</a>
-          <a href="#categories" onClick={(e) => handleNavClick(e, 'categories')} className="px-3.5 py-2 rounded-xl hover:text-boou-600 hover:bg-boou-100/70 transition">Kategoriyalar</a>
-          <a href="#about" onClick={(e) => handleNavClick(e, 'about')} className="px-3.5 py-2 rounded-xl hover:text-boou-600 hover:bg-boou-100/70 transition">BOOU haqida</a>
-          <a href="#manzil" onClick={(e) => handleNavClick(e, 'manzil')} className="px-3.5 py-2 rounded-xl hover:text-boou-600 hover:bg-boou-100/70 transition">Manzil</a>
+          <a href="#hero" onClick={(e) => handleNavClick(e, 'hero')} className="px-3 py-2 rounded-xl hover:text-boou-600 hover:bg-boou-100/70 transition font-semibold">{t('nav.home')}</a>
+          <a href="#products" onClick={(e) => handleNavClick(e, 'products')} className="px-3 py-2 rounded-xl hover:text-boou-600 hover:bg-boou-100/70 transition">{t('nav.products')}</a>
+          <a href="#categories" onClick={(e) => handleNavClick(e, 'categories')} className="px-3 py-2 rounded-xl hover:text-boou-600 hover:bg-boou-100/70 transition">{t('nav.categories')}</a>
+          <a href="#about" onClick={(e) => handleNavClick(e, 'about')} className="px-3 py-2 rounded-xl hover:text-boou-600 hover:bg-boou-100/70 transition">{t('nav.about')}</a>
+          <a href="#manzil" onClick={(e) => handleNavClick(e, 'manzil')} className="px-3 py-2 rounded-xl hover:text-boou-600 hover:bg-boou-100/70 transition">{t('nav.location')}</a>
         </nav>
 
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-1.5 sm:gap-2.5">
+          {/* Til tanlash tugmasi (O'zbekcha / Русский / English) */}
+          <LanguageSwitcher />
 
-          <button
-            onClick={onOpenAdmin}
-            className="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-xl text-boou-600 hover:bg-boou-100 border border-boou-200/80 font-bold text-xs transition"
-            title="Admin Panel"
-          >
-            <i className="fas fa-tools"></i>
-            <span>Admin</span>
-          </button>
-
-          <button onClick={onOpenWishlist} className="relative p-2.5 rounded-xl text-boou-700 hover:text-red-500 hover:bg-boou-100 border border-boou-200/80 transition" title="Sevimlilar">
+          <button onClick={onOpenWishlist} className="relative py-1 p-2.5 rounded-xl text-boou-700 hover:text-red-500 hover:bg-boou-100 border border-boou-200/80 transition" title={t('nav.wishlist')}>
             <i className="far fa-heart text-lg"></i>
             {wishlistCount > 0 && (
               <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
@@ -59,9 +55,9 @@ export const Header = ({ cartCount, wishlistCount, onOpenCart, onOpenWishlist, o
             )}
           </button>
 
-          <button onClick={onOpenCart} className="relative flex items-center gap-2 px-3.5 py-2 rounded-xl bg-boou-600 hover:bg-boou-700 text-white font-semibold text-sm shadow-sm transition">
+          <button onClick={onOpenCart} className="relative flex items-center gap-2 px-3 sm:px-3.5 py-2 rounded-xl bg-boou-600 hover:bg-boou-700 text-white font-semibold text-sm shadow-sm transition">
             <i className="fas fa-shopping-bag"></i>
-            <span className="hidden sm:inline">Savatcha</span>
+            <span className="hidden md:inline">{t('nav.cart')}</span>
             <span className="bg-white text-boou-700 text-[11px] font-extrabold px-1.5 py-0.5 rounded-full min-w-[20px] text-center">
               {cartCount}
             </span>
@@ -75,18 +71,11 @@ export const Header = ({ cartCount, wishlistCount, onOpenCart, onOpenWishlist, o
 
       {mobileMenuOpen && (
         <div className="lg:hidden border-t border-boou-200 bg-white px-5 py-4 space-y-2 shadow-xl">
-          <a href="#hero" onClick={(e) => handleNavClick(e, 'hero')} className="block px-3 py-2 rounded-xl font-semibold text-boou-800 hover:bg-boou-100">Bosh sahifa</a>
-          <a href="#products" onClick={(e) => handleNavClick(e, 'products')} className="block px-3 py-2 rounded-xl font-medium text-boou-800 hover:bg-boou-100">Barcha mahsulotlar</a>
-          <a href="#categories" onClick={(e) => handleNavClick(e, 'categories')} className="block px-3 py-2 rounded-xl font-medium text-boou-800 hover:bg-boou-100">Kategoriyalar</a>
-          <a href="#about" onClick={(e) => handleNavClick(e, 'about')} className="block px-3 py-2 rounded-xl font-medium text-boou-800 hover:bg-boou-100">BOOU haqida</a>
-          <a href="#manzil" onClick={(e) => handleNavClick(e, 'manzil')} className="block px-3 py-2 rounded-xl font-medium text-boou-800 hover:bg-boou-100">Manzil va Showroom</a>
-
-          <button
-            onClick={() => { setMobileMenuOpen(false); onOpenAdmin(); }}
-            className="w-full text-left px-3 py-2 rounded-xl font-bold text-boou-600 bg-boou-50 hover:bg-boou-100 flex items-center gap-2"
-          >
-            <i className="fas fa-tools"></i> Admin Panel
-          </button>
+          <a href="#hero" onClick={(e) => handleNavClick(e, 'hero')} className="block px-3 py-2 rounded-xl font-semibold text-boou-800 hover:bg-boou-100">{t('nav.home')}</a>
+          <a href="#products" onClick={(e) => handleNavClick(e, 'products')} className="block px-3 py-2 rounded-xl font-medium text-boou-800 hover:bg-boou-100">{t('nav.products')}</a>
+          <a href="#categories" onClick={(e) => handleNavClick(e, 'categories')} className="block px-3 py-2 rounded-xl font-medium text-boou-800 hover:bg-boou-100">{t('nav.categories')}</a>
+          <a href="#about" onClick={(e) => handleNavClick(e, 'about')} className="block px-3 py-2 rounded-xl font-medium text-boou-800 hover:bg-boou-100">{t('nav.about')}</a>
+          <a href="#manzil" onClick={(e) => handleNavClick(e, 'manzil')} className="block px-3 py-2 rounded-xl font-medium text-boou-800 hover:bg-boou-100">{t('nav.locationFull')}</a>
         </div>
       )}
     </header>

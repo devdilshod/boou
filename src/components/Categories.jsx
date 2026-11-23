@@ -1,6 +1,9 @@
 import React from 'react';
+import { useLanguage } from '../context/LanguageContext';
 
 export const Categories = ({ categories, onSelectCategory }) => {
+  const { t, translateCategory } = useLanguage();
+
   return (
     <section id="categories" className="py-16 bg-boou-100/40 border-y border-boou-200/60">
       <div id="kategoriyalar"></div>
@@ -8,13 +11,13 @@ export const Categories = ({ categories, onSelectCategory }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <div className="text-xs font-bold text-boou-600 uppercase tracking-widest mb-1.5">
-            <i className="fas fa-th-large"></i> Assortiment Yo'nalishlari
+            <i className="fas fa-th-large"></i> {t('categories.eyebrow')}
           </div>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-boou-950 tracking-tight">
-            Mahsulot Kategoriyalari
+            {t('categories.title')}
           </h2>
           <p className="text-sm text-boou-600 mt-2">
-            Sanuzel va oshxonangiz uchun zarur bo'lgan barcha santexnika buyumlari qulay guruhlangan holda.
+            {t('categories.subtitle')}
           </p>
         </div>
 
@@ -31,17 +34,13 @@ export const Categories = ({ categories, onSelectCategory }) => {
               <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden bg-boou-50 mb-3 border border-boou-100 flex items-center justify-center p-1">
                 <img
                   src={cat.img}
-                  alt={cat.name}
+                  alt={translateCategory(cat.id, cat.name)}
                   className="w-full h-full object-cover rounded-xl group-hover:scale-110 transition-transform duration-300"
-            
                 />
               </div>
               <h4 className="font-bold text-xs sm:text-sm text-boou-950 group-hover:text-boou-600 transition leading-snug line-clamp-2">
-                {cat.name}
+                {translateCategory(cat.id, cat.name)}
               </h4>
-              {/* <span className="text-[10px] text-boou-500 font-semibold mt-1 bg-boou-50 px-2 py-0.5 rounded-full border border-boou-100">
-                {cat.count}
-              </span> */}
             </div>
           ))}
         </div>

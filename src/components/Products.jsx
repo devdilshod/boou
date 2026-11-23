@@ -1,5 +1,6 @@
 import React from 'react';
 import { ProductCard } from './ProductCard';
+import { useLanguage } from '../context/LanguageContext';
 
 export const Products = ({
   products,
@@ -15,6 +16,8 @@ export const Products = ({
   wishlist,
   onOpenModal
 }) => {
+  const { t, translateCategory } = useLanguage();
+
   return (
     <section id="products" className="py-16 lg:py-20 bg-white">
       <div id="catalog"></div>
@@ -25,18 +28,18 @@ export const Products = ({
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
           <div>
             <div className="flex items-center gap-2 text-xs font-bold text-boou-600 uppercase tracking-widest mb-1.5">
-              <i className="fas fa-layer-group"></i> BOOU Original Katalogi
+              <i className="fas fa-layer-group"></i> {t('products.eyebrow')}
             </div>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-boou-950 tracking-tight">
-              Top Mahsulotlar & Barcha Katalog
+              {t('products.title')}
             </h2>
             <p className="text-sm text-boou-600 mt-1 max-w-2xl">
-              Har bir model uchun 3-4 xil rang variantini bevosita kartadan tanlashingiz mumkin.
+              {t('products.subtitle')}
             </p>
           </div>
           <div className="text-xs text-boou-600 bg-boou-50 px-3 py-1.5 rounded-xl border border-boou-200">
-            <span>Ko'rsatilmoqda:</span>
-            <strong className="text-boou-900 font-bold ml-1">{products.length} ta model</strong>
+            <span>{t('products.showing')}</span>
+            <strong className="text-boou-900 font-bold ml-1">{products.length} {t('products.countSuffix')}</strong>
           </div>
         </div>
 
@@ -51,7 +54,7 @@ export const Products = ({
                   : 'bg-white text-boou-800 border border-boou-200 hover:bg-boou-100'
               }`}
             >
-              Barchasi
+              {t('cat.all')}
             </button>
             {categories.map(cat => (
               <button
@@ -63,8 +66,7 @@ export const Products = ({
                     : 'bg-white text-boou-800 border border-boou-200 hover:bg-boou-100'
                 }`}
               >
-                {cat.id === 'oshxona-smestitel' && <span className="w-2 h-2 rounded-full bg-brass-500"></span>}
-                {cat.name}
+                {translateCategory(cat.id, cat.name)}
               </button>
             ))}
           </div>
@@ -76,22 +78,22 @@ export const Products = ({
                 type="text"
                 value={searchQuery}
                 onChange={(e) => onSearchChange(e.target.value)}
-                placeholder="Model nomi, kodi (masalan, BOOU-5413), yoki xususiyati bo'yicha qidiring..."
+                placeholder={t('products.searchPlaceholder')}
                 className="w-full pl-10 pr-10 py-2.5 bg-white border border-boou-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-boou-600/40 text-boou-900 placeholder:text-boou-400"
               />
             </div>
 
             <div className="sm:col-span-5 flex items-center gap-2">
-              <label className="text-xs font-medium text-boou-600 whitespace-nowrap">Saralash:</label>
+              <label className="text-xs font-medium text-boou-600 whitespace-nowrap">{t('products.sortLabel')}</label>
               <select
                 value={sortBy}
                 onChange={(e) => onSortChange(e.target.value)}
                 className="w-full bg-white border border-boou-200 rounded-xl px-3 py-2.5 text-xs font-semibold text-boou-800 focus:outline-none focus:ring-2 focus:ring-boou-600/40"
               >
-                <option value="popular">Tavsiya etilgan / Mashhur</option>
-                <option value="price-asc">Narx: Arzondan qimmatga</option>
-                <option value="price-desc">Narx: Qimmatdan arzonga</option>
-                <option value="newest">Yangi qo'shilganlar</option>
+                <option value="popular">{t('products.sortPopular')}</option>
+                <option value="price-asc">{t('products.sortPriceAsc')}</option>
+                <option value="price-desc">{t('products.sortPriceDesc')}</option>
+                <option value="newest">{t('products.sortNewest')}</option>
               </select>
             </div>
           </div>
@@ -100,8 +102,8 @@ export const Products = ({
         {products.length === 0 ? (
           <div className="text-center py-16 bg-boou-50 rounded-3xl border border-dashed border-boou-200 my-8">
             <i className="fas fa-search-minus text-4xl text-boou-400 mb-2"></i>
-            <h3 className="text-lg font-bold text-boou-900">Ushbu so'rov bo'yicha mahsulot topilmadi</h3>
-            <p className="text-xs text-boou-500 mt-1">Iltimos, boshqa kalit so'z kiriting yoki toifalardan birini tanlang.</p>
+            <h3 className="text-lg font-bold text-boou-900">{t('products.emptyTitle')}</h3>
+            <p className="text-xs text-boou-500 mt-1">{t('products.emptySub')}</p>
           </div>
         ) : (
           <div className="flex gap-6 overflow-x-auto flex-nowrap pb-4 snap-x snap-mandatory sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:overflow-visible sm:pb-0">

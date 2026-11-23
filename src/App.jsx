@@ -34,6 +34,8 @@ const mergeProductsWithDb = (baseList, dbDataMap) => {
       price: dbItem.price ?? localItem.price,
       oldPrice: dbItem.oldPrice ?? localItem.oldPrice,
       inStock: dbItem.inStock ?? localItem.inStock,
+      isNew: dbItem.isNew ?? localItem.isNew,
+      isPopular: dbItem.isPopular ?? localItem.isPopular,
 
       colors: localItem.colors?.map((c) => {
         const dbColor = dbItem.colors?.find(
@@ -200,11 +202,39 @@ export const App = () => {
   const [sortBy, setSortBy] = useState('popular');
 
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState('home');
+  const [currentPage, setCurrentPage] = useState(() => {
+    if (window.location.hash === '#admin' || window.location.search.includes('admin')) {
+      return 'admin';
+    }
+    return 'home';
+  });
   const [scrollToSection, setScrollToSection] = useState(null);
 
   const [modalProduct, setModalProduct] = useState(null);
   const [modalColor, setModalColor] = useState(null);
+
+  // Yashirin kirish: URL da #admin bo'lsa yoki klaviaturada Ctrl+Shift+A bosilsa Admin ochiladi
+  useEffect(() => {
+    const handleHashChange = () => {
+      if (window.location.hash === '#admin') {
+        setCurrentPage('admin');
+      }
+    };
+
+    const handleKeyDown = (e) => {
+      if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'a') {
+        e.preventDefault();
+        setCurrentPage('admin');
+      }
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
 
   // Savatchani saqlash
   useEffect(() => {
@@ -397,6 +427,9 @@ export const App = () => {
           uploading={uploading}
 
           onBack={() => {
+            if (window.location.hash === '#admin') {
+              window.history.replaceState(null, '', window.location.pathname);
+            }
             setCurrentPage('home');
             loadProducts();
           }}
@@ -478,7 +511,7 @@ export const App = () => {
             cart={cart}
             onUpdateQuantity={handleUpdateQuantity}
             onRemove={handleRemoveFromCart}
-            onCheckout={() => {
+            onCheckout={async ({ name, phone, note }) => {
               const total = cart.reduce(
                 (s, i) => s + i.price * i.quantity,
                 0
@@ -489,23 +522,41 @@ export const App = () => {
 
               const itemsText = cart
                 .map(
-                  (i) =>
-                    `• ${i.name} (${i.color}) - ${i.quantity} x $${i.price} = $${i.price * i.quantity}`
+                  (i, idx) =>
+                    `${idx + 1}. ${i.name} (${i.color}) — ${i.quantity} x $${i.price} = $${i.price * i.quantity}`
                 )
                 .join('\n');
 
-              const tgMsg = encodeURIComponent(
-                `Assalomu alaykum! BOOU showroomidan yangi buyurtma:\n` +
-                `Buyurtma kodi: #${orderNum}\n\n` +
-                `Tanlangan mahsulotlar:\n${itemsText}\n\n` +
-                `Jami summa: $${total}\n` +
-                `Do'kon: Qo'yliq bozori 2-pavilion 94-do'kon`
+              const text =
+                `🆕 YANGI BUYURTMA #${orderNum}\n\n` +
+                `👤 Mijoz: ${name}\n` +
+                `📞 Telefon: ${phone}\n` +
+                (note ? `📝 Izoh: ${note}\n` : '') +
+                `\n📦 Tanlangan mahsulotlar:\n${itemsText}\n\n` +
+                `💰 Jami summa: $${total}\n` +
+                `📍 Do'kon: Qo'yliq bozori 2-pavilion 94-do'kon`;
+
+              const BOT_TOKEN = '9204636841:AAEGxoFNQmur2xNFZvuXF6EBdl8wpw9kK1M';
+              const CHAT_ID = '8036527130';
+
+              const res = await fetch(
+                `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
+                {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({
+                    chat_id: CHAT_ID,
+                    text,
+                  }),
+                }
               );
 
-              window.open(
-                `https://t.me/boou_tashkent?text=${tgMsg}`,
-                '_blank'
-              );
+              if (!res.ok) {
+                throw new Error('Telegram API error');
+              }
+
+              setCart([]);
+              return orderNum;
             }}
           />
 

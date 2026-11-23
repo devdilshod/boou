@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { ProductCard } from './ProductCard.jsx';
+import { useLanguage } from '../context/LanguageContext';
 
 export const Wishlist = ({
   products,
@@ -10,6 +10,8 @@ export const Wishlist = ({
   onOpenModal,
   onBack
 }) => {
+  const { t } = useLanguage();
+
   const likedProducts = products.filter(product =>
     wishlist.includes(product.id)
   );
@@ -24,7 +26,7 @@ export const Wishlist = ({
           className="mb-6 flex items-center gap-2 text-boou-700 hover:text-boou-900 font-semibold"
         >
           <i className="fas fa-arrow-left"></i>
-          Bosh sahifaga qaytish
+          {t('wishlist.back')}
         </button>
 
         <div className="flex items-center gap-3 mb-8">
@@ -32,11 +34,11 @@ export const Wishlist = ({
 
           <div>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-boou-950">
-              Sevimlilar
+              {t('wishlist.title')}
             </h1>
 
             <p className="text-sm text-boou-500 mt-1">
-              {likedProducts.length} ta mahsulot
+              {likedProducts.length} {t('wishlist.countSuffix')}
             </p>
           </div>
         </div>
@@ -46,11 +48,11 @@ export const Wishlist = ({
             <i className="far fa-heart text-5xl text-boou-300"></i>
 
             <h2 className="text-xl font-bold text-boou-900 mt-4">
-              Sevimlilar hozircha bo'sh
+              {t('wishlist.emptyTitle')}
             </h2>
 
             <p className="text-boou-500 mt-2 mb-6">
-              Yoqtirgan mahsulotlaringizni yurak tugmasi orqali saqlang.
+              {t('wishlist.emptySub')}
             </p>
 
             <button
@@ -58,7 +60,7 @@ export const Wishlist = ({
               onClick={onBack}
               className="px-5 py-3 rounded-xl bg-boou-600 hover:bg-boou-700 text-white font-bold"
             >
-              Mahsulotlarni ko'rish
+              {t('wishlist.browse')}
             </button>
           </div>
         ) : (

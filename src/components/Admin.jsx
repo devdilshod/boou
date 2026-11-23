@@ -116,6 +116,21 @@ export const Admin = ({
         setEditableProducts(updated);
     };
 
+    // "Yangi" (isNew) yoki "Xit prodaja" (isPopular) belgisini o'zgartirish
+    const handleBadgeToggle = (productId, field) => {
+        const updated = editableProducts.map((p) => {
+            if (p.id === productId) {
+                return {
+                    ...p,
+                    [field]: !p[field]
+                };
+            }
+            return p;
+        });
+
+        setEditableProducts(updated);
+    };
+
     // Ombor holatini o'zgartirish
     const handleStockToggle = (productId, colorCode) => {
         const updated = editableProducts.map((p) => {
@@ -181,6 +196,8 @@ export const Admin = ({
                     price: Number(prod.price) || 0,
                     oldPrice: Number(prod.oldPrice) || 0,
                     inStock: prod.inStock !== false,
+                    isNew: Boolean(prod.isNew),
+                    isPopular: Boolean(prod.isPopular),
 
                     colors: Array.isArray(prod.colors)
                         ? prod.colors.map((c) => ({
@@ -208,8 +225,8 @@ export const Admin = ({
                     description: prod.description || "",
                     image: prod.image || "",
                     colors: safeProduct.colors,
-                    is_popular: prod.isPopular ?? false,
-                    is_new: prod.isNew ?? false,
+                    is_popular: safeProduct.isPopular,
+                    is_new: safeProduct.isNew,
                     in_stock: safeProduct.inStock
                 });
             }
@@ -425,7 +442,7 @@ export const Admin = ({
                                         className="p-4 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-boou-50/50"
                                     >
 
-                                        {/* Rasm va mahsulot nomi */}
+                                        {/* Rasm, mahsulot nomi va Yangi / Xit prodaja tugmalari */}
                                         <div className="flex items-center gap-3 md:w-1/3">
 
                                             {displayImage ? (
@@ -451,6 +468,30 @@ export const Admin = ({
                                                 <span className="text-[10px] text-boou-500 font-mono">
                                                     Kod: {product.code || product.id}
                                                 </span>
+
+                                                <div className="flex flex-wrap items-center gap-1.5 mt-1.5">
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => handleBadgeToggle(product.id, 'isNew')}
+                                                        className={`px-2 py-0.5 rounded-md font-bold text-[10px] transition border ${product.isNew
+                                                            ? 'bg-boou-600 text-white border-boou-600 shadow-xs'
+                                                            : 'bg-white text-boou-500 border-boou-200 hover:bg-boou-100'
+                                                            }`}
+                                                    >
+                                                        {product.isNew ? '✓ Yangi' : '+ Yangi'}
+                                                    </button>
+
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => handleBadgeToggle(product.id, 'isPopular')}
+                                                        className={`px-2 py-0.5 rounded-md font-bold text-[10px] transition border ${product.isPopular
+                                                            ? 'bg-amber-400 text-boou-950 border-amber-500 shadow-xs'
+                                                            : 'bg-white text-boou-500 border-boou-200 hover:bg-boou-100'
+                                                            }`}
+                                                    >
+                                                        {product.isPopular ? '★ Xit prodaja' : '☆ Xit prodaja'}
+                                                    </button>
+                                                </div>
                                             </div>
 
                                         </div>
