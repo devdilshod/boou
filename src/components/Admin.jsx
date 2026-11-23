@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../firebase.js';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, setDoc, deleteDoc, collection, onSnapshot } from 'firebase/firestore';
 import { supabase } from '../supabase.js';
 
 export const Admin = ({
@@ -20,10 +20,84 @@ export const Admin = ({
     const [searchQuery, setSearchQuery] = useState('');
     const [saving, setSaving] = useState(false);
 
+    // Promokodlar state'lari
+    const [promos, setPromos] = useState([]);
+    const [newPromoCode, setNewPromoCode] = useState('');
+    const [newPromoType, setNewPromoType] = useState('percent'); // 'percent' | 'fixed'
+    const [newPromoValue, setNewPromoValue] = useState('');
+    const [promoLoading, setPromoLoading] = useState(false);
+
     // Asosiy mahsulotlar bazadan yuklanganda admin ro'yxatini ham sinxronlash
     useEffect(() => {
         setEditableProducts(products || []);
     }, [products]);
+
+    // Firebase'dan promokodlarni real-vaqtda yuklash
+    useEffect(() => {
+        const unsub = onSnapshot(collection(db, 'promocodes'), (snap) => {
+            const list = [];
+            snap.forEach((docSnap) => {
+                list.push({ id: docSnap.id, ...docSnap.data() });
+            });
+            setPromos(list);
+        });
+        return () => unsub();
+    }, []);
+
+    // Yangi promokod yaratish
+    const handleCreatePromo = async (e) => {
+        e.preventDefault();
+        const code = newPromoCode.trim().toUpperCase().replace(/\s+/g, '');
+        const val = Number(newPromoValue);
+
+        if (!code || val <= 0) {
+            alert("Promokod nomi va chegirma miqdorini to'g'ri kiriting!");
+            return;
+        }
+        if (newPromoType === 'percent' && val > 100) {
+            alert("Foizli chegirma 100% dan oshmasligi kerak!");
+            return;
+        }
+
+        setPromoLoading(true);
+        try {
+            await setDoc(doc(db, 'promocodes', code), {
+                code,
+                type: newPromoType,
+                value: val,
+                active: true,
+                createdAt: Date.now()
+            });
+            setNewPromoCode('');
+            setNewPromoValue('');
+        } catch (err) {
+            alert("Promokod yaratishda xatolik: " + err.message);
+        } finally {
+            setPromoLoading(false);
+        }
+    };
+
+    // Promokodni Faol / O'chiq qilish
+    const handleTogglePromo = async (promo) => {
+        try {
+            await setDoc(
+                doc(db, 'promocodes', promo.id),
+                { active: !promo.active },
+                { merge: true }
+            );
+        } catch (err) {
+            alert("Holatni o'zgartirishda xatolik: " + err.message);
+        }
+    };
+
+    // Promokodni o'chirish
+    const handleDeletePromo = async (promoId) => {
+        try {
+            await deleteDoc(doc(db, 'promocodes', promoId));
+        } catch (err) {
+            alert("O'chirishda xatolik: " + err.message);
+        }
+    };
 
     // Qidiruv bo'yicha filtrlash (nomi, kodi yoki rang kodi bo'yicha)
     const filteredProducts = editableProducts.filter((p) => {
@@ -389,6 +463,94 @@ export const Admin = ({
                         </button>
 
                     </div>
+                </div>
+
+                {/* PROMOKODLAR BOSHQARUVI */}
+                <div className="bg-white p-4 sm:p-5 rounded-2xl shadow-sm border border-boou-200 space-y-4">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                        <h2 className="text-sm font-extrabold text-boou-900 flex items-center gap-2">
+                            <i className="fas fa-ticket-alt text-brass-600"></i>
+                            Promokodlar boshqaruvi ({promos.length} ta)
+                        </h2>
+                        <span className="text-[11px] text-boou-500">
+                            Yaratilgan yoki o'zgartirilgan promokod darhol ishga tushadi
+                        </span>
+                    </div>
+
+                    <form onSubmit={handleCreatePromo} className="grid grid-cols-1 sm:grid-cols-12 gap-2.5">
+                        <input
+                            type="text"
+                            placeholder="Promokod (masalan: BONUS)"
+                            value={newPromoCode}
+                            onChange={(e) => setNewPromoCode(e.target.value.toUpperCase())}
+                            className="sm:col-span-4 px-3.5 py-2 rounded-xl border border-boou-200 text-xs font-bold uppercase focus:outline-none focus:ring-2 focus:ring-boou-600/40"
+                        />
+
+                        <select
+                            value={newPromoType}
+                            onChange={(e) => setNewPromoType(e.target.value)}
+                            className="sm:col-span-3 px-3 py-2 rounded-xl border border-boou-200 text-xs font-semibold text-boou-800 bg-white focus:outline-none"
+                        >
+                            <option value="percent">Foiz chegirma (%)</option>
+                            <option value="fixed">Aniq summa ($)</option>
+                        </select>
+
+                        <input
+                            type="number"
+                            min="1"
+                            placeholder={newPromoType === 'percent' ? "Foiz (masalan: 10)" : "Summa $ (masalan: 5)"}
+                            value={newPromoValue}
+                            onChange={(e) => setNewPromoValue(e.target.value)}
+                            className="sm:col-span-3 px-3.5 py-2 rounded-xl border border-boou-200 text-xs font-bold focus:outline-none focus:ring-2 focus:ring-boou-600/40"
+                        />
+
+                        <button
+                            type="submit"
+                            disabled={promoLoading}
+                            className="sm:col-span-2 py-2 px-4 bg-boou-700 hover:bg-boou-900 text-white rounded-xl font-bold text-xs transition disabled:opacity-50"
+                        >
+                            {promoLoading ? "..." : "+ Yaratish"}
+                        </button>
+                    </form>
+
+                    {promos.length > 0 && (
+                        <div className="flex flex-wrap gap-2 pt-1">
+                            {promos.map((promo) => (
+                                <div
+                                    key={promo.id}
+                                    className={`flex items-center gap-2.5 px-3 py-2 rounded-xl border text-xs ${promo.active
+                                        ? 'bg-emerald-50/60 border-emerald-200 text-boou-900'
+                                        : 'bg-gray-100 border-gray-200 text-gray-500'
+                                        }`}
+                                >
+                                    <span className="font-mono font-extrabold">{promo.code}</span>
+                                    <span className="font-bold text-boou-700">
+                                        -{promo.type === 'percent' ? `${promo.value}%` : `$${promo.value}`}
+                                    </span>
+
+                                    <button
+                                        type="button"
+                                        onClick={() => handleTogglePromo(promo)}
+                                        className={`px-2 py-0.5 rounded-lg font-bold text-[10px] uppercase transition ${promo.active
+                                            ? 'bg-emerald-600 text-white hover:bg-emerald-700'
+                                            : 'bg-gray-300 text-gray-700 hover:bg-gray-400'
+                                            }`}
+                                    >
+                                        {promo.active ? 'Faol' : "O'chiq"}
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        onClick={() => handleDeletePromo(promo.id)}
+                                        className="text-red-400 hover:text-red-600 px-1"
+                                        title="O'chirish"
+                                    >
+                                        <i className="fas fa-trash-alt"></i>
+                                    </button>
+                                </div>
+                            ))}
+                        </div>
+                    )}
                 </div>
 
                 {/* Qidiruv paneli */}

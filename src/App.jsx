@@ -57,8 +57,22 @@ const mergeProductsWithDb = (baseList, dbDataMap) => {
 
 export const App = () => {
   const [products, setProducts] = useState(INITIAL_PRODUCTS);
+  const [promocodes, setPromocodes] = useState([]);
 
   const [uploading, setUploading] = useState(false);
+
+  // Firebase'dan promokodlarni real-vaqtda yuklash
+  useEffect(() => {
+    const unsubPromos = onSnapshot(collection(db, 'promocodes'), (snapshot) => {
+      const list = [];
+      snapshot.forEach((docSnap) => {
+        list.push({ id: docSnap.id, ...docSnap.data() });
+      });
+      setPromocodes(list);
+    });
+
+    return () => unsubPromos();
+  }, []);
 
   // Supabase'ga mahsulotlarni yuklash
   const handleUploadProducts = async () => {
@@ -509,14 +523,10 @@ export const App = () => {
             isOpen={isCartOpen}
             onClose={() => setIsCartOpen(false)}
             cart={cart}
+            promocodes={promocodes}
             onUpdateQuantity={handleUpdateQuantity}
             onRemove={handleRemoveFromCart}
-            onCheckout={async ({ name, phone, note }) => {
-              const total = cart.reduce(
-                (s, i) => s + i.price * i.quantity,
-                0
-              );
-
+            onCheckout={async ({ name, phone, note, promo, subtotal, finalTotal }) => {
               const orderNum =
                 'BOOU-' + Math.floor(1000 + Math.random() * 9000);
 
@@ -527,13 +537,17 @@ export const App = () => {
                 )
                 .join('\n');
 
+              const promoText = promo
+                ? `\n🎟 Promokod: ${promo.code} (-$${promo.discountAmount})\n💵 Asl summa: $${subtotal}\n💰 Yakuniy summa: $${finalTotal}`
+                : `\n💰 Jami summa: $${finalTotal}`;
+
               const text =
                 `🆕 YANGI BUYURTMA #${orderNum}\n\n` +
                 `👤 Mijoz: ${name}\n` +
                 `📞 Telefon: ${phone}\n` +
                 (note ? `📝 Izoh: ${note}\n` : '') +
-                `\n📦 Tanlangan mahsulotlar:\n${itemsText}\n\n` +
-                `💰 Jami summa: $${total}\n` +
+                `\n📦 Tanlangan mahsulotlar:\n${itemsText}\n` +
+                `${promoText}\n` +
                 `📍 Do'kon: Qo'yliq bozori 2-pavilion 94-do'kon`;
 
               const BOT_TOKEN = '9204636841:AAEGxoFNQmur2xNFZvuXF6EBdl8wpw9kK1M';

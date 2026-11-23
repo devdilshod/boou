@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 
-export const Cart = ({ isOpen, onClose, cart, onUpdateQuantity, onRemove, onCheckout }) => {
+export const Cart = ({ isOpen, onClose, cart, promocodes = [], onUpdateQuantity, onRemove, onCheckout }) => {
   const { t, translateColor, translateProductName } = useLanguage();
 
   const [step, setStep] = useState('cart'); // 'cart' | 'form' | 'success'
@@ -12,9 +12,48 @@ export const Cart = ({ isOpen, onClose, cart, onUpdateQuantity, onRemove, onChec
   const [sending, setSending] = useState(false);
   const [confirmedOrderNum, setConfirmedOrderNum] = useState('');
 
+  // Promokod state'lari
+  const [promoInput, setPromoInput] = useState('');
+  const [appliedPromoCode, setAppliedPromoCode] = useState(null);
+  const [promoError, setPromoError] = useState('');
+
   if (!isOpen) return null;
 
-  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+  // Admin panelda o'chirilsa yoki nofaol qilinsa avtomatik bekor bo'ladi
+  const activePromo = appliedPromoCode
+    ? promocodes.find((p) => p.code === appliedPromoCode && p.active === true) || null
+    : null;
+
+  const discountAmount = activePromo
+    ? activePromo.type === 'percent'
+      ? Math.round((subtotal * activePromo.value) / 100 * 100) / 100
+      : Math.min(subtotal, Number(activePromo.value) || 0)
+    : 0;
+
+  const finalTotal = Math.max(0, Math.round((subtotal - discountAmount) * 100) / 100);
+
+  const handleApplyPromo = () => {
+    const clean = promoInput.trim().toUpperCase().replace(/\s+/g, '');
+    if (!clean) return;
+
+    const found = promocodes.find((p) => p.code === clean && p.active === true);
+    if (!found) {
+      setPromoError(t('cart.promoInvalid'));
+      setAppliedPromoCode(null);
+      return;
+    }
+
+    setPromoError('');
+    setAppliedPromoCode(found.code);
+  };
+
+  const handleRemovePromo = () => {
+    setAppliedPromoCode(null);
+    setPromoInput('');
+    setPromoError('');
+  };
 
   const handleCloseAll = () => {
     setStep('cart');
@@ -40,12 +79,24 @@ export const Cart = ({ isOpen, onClose, cart, onUpdateQuantity, onRemove, onChec
         name: cleanName,
         phone: cleanPhone,
         note: customerNote.trim(),
+        promo: activePromo
+          ? {
+              code: activePromo.code,
+              type: activePromo.type,
+              value: activePromo.value,
+              discountAmount,
+            }
+          : null,
+        subtotal,
+        finalTotal,
       });
       setConfirmedOrderNum(orderNum);
       setStep('success');
       setCustomerName('');
       setCustomerPhone('+998 ');
       setCustomerNote('');
+      setAppliedPromoCode(null);
+      setPromoInput('');
     } catch {
       setErrorMsg(t('cart.sendError'));
     } finally {
@@ -115,14 +166,60 @@ export const Cart = ({ isOpen, onClose, cart, onUpdateQuantity, onRemove, onChec
 
             {cart.length > 0 && (
               <div className="p-4 border-t border-boou-200 bg-boou-50 space-y-3">
+                {/* Promokod kiritish */}
+                <div className="space-y-1.5">
+                  <label className="block text-[11px] font-bold text-boou-700">{t('cart.promoLabel')}</label>
+                  {activePromo ? (
+                    <div className="flex items-center justify-between px-3 py-2 rounded-xl bg-emerald-50 border border-emerald-200 text-xs">
+                      <span className="font-bold text-emerald-700">
+                        <i className="fas fa-tag mr-1.5"></i>
+                        {t('cart.promoApplied')} <span className="font-mono">{activePromo.code}</span> (-{activePromo.type === 'percent' ? `${activePromo.value}%` : `$${activePromo.value}`})
+                      </span>
+                      <button
+                        type="button"
+                        onClick={handleRemovePromo}
+                        className="text-red-500 hover:underline font-bold text-[11px]"
+                      >
+                        {t('cart.promoRemove')}
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="flex gap-2">
+                      <input
+                        type="text"
+                        value={promoInput}
+                        onChange={(e) => { setPromoInput(e.target.value.toUpperCase()); setPromoError(''); }}
+                        placeholder={t('cart.promoPlaceholder')}
+                        className="flex-1 px-3 py-2 rounded-xl border border-boou-200 bg-white text-xs font-bold uppercase focus:outline-none focus:ring-2 focus:ring-boou-600/40"
+                      />
+                      <button
+                        type="button"
+                        onClick={handleApplyPromo}
+                        className="px-3.5 py-2 rounded-xl bg-boou-800 hover:bg-boou-950 text-white text-xs font-bold transition"
+                      >
+                        {t('cart.promoApply')}
+                      </button>
+                    </div>
+                  )}
+                  {promoError && (
+                    <p className="text-[11px] text-red-600 font-semibold">{promoError}</p>
+                  )}
+                </div>
+
                 <div className="space-y-1.5 text-xs text-boou-600">
                   <div className="flex justify-between">
                     <span>{t('cart.subtotal')}</span>
-                    <strong className="text-boou-900 font-bold">${total}</strong>
+                    <strong className="text-boou-900 font-bold">${subtotal}</strong>
                   </div>
+                  {discountAmount > 0 && (
+                    <div className="flex justify-between text-emerald-600 font-bold">
+                      <span>{t('cart.discount')} ({activePromo.code})</span>
+                      <span>-${discountAmount}</span>
+                    </div>
+                  )}
                   <div className="flex justify-between text-base text-boou-950 font-extrabold pt-2 border-t border-boou-200">
                     <span>{t('cart.total')}</span>
-                    <span className="text-boou-600">${total}</span>
+                    <span className="text-boou-600">${finalTotal}</span>
                   </div>
                 </div>
                 <button
@@ -149,9 +246,16 @@ export const Cart = ({ isOpen, onClose, cart, onUpdateQuantity, onRemove, onChec
                 <i className="fas fa-arrow-left"></i> {t('cart.backToCart')}
               </button>
 
-              <div className="p-3.5 rounded-2xl bg-boou-50 border border-boou-200 flex items-center justify-between">
-                <span className="text-xs font-semibold text-boou-600">{t('cart.total')}</span>
-                <span className="text-lg font-black text-boou-950">${total}</span>
+              <div className="p-3.5 rounded-2xl bg-boou-50 border border-boou-200 space-y-1">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold text-boou-600">{t('cart.total')}</span>
+                  <span className="text-lg font-black text-boou-950">${finalTotal}</span>
+                </div>
+                {activePromo && (
+                  <div className="text-[11px] text-emerald-600 font-bold">
+                    Promokod: {activePromo.code} (-${discountAmount})
+                  </div>
+                )}
               </div>
 
               {errorMsg && (
